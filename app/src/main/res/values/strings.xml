@@ -2,6 +2,7 @@
     <string name="app_name">Sahara</string>
     <string name="app_tagline">The Helping Hand</string>
     <string name="introslider_button_start">"Let's Get Started"</string>
+    <string name="introslider_button_skip">SKIP</string>
 
     <!-- The Heading Value in intro Slider -->
     <string name="slider_heading_needy">Needy </string>
