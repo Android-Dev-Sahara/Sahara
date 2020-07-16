@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Sahara</string>
+    <string name="app_tagline">The Helping Hand</string>
+    <string name="introslider_button_start">"Let's Get Started"</string>
+
+    <!-- The Heading Value in intro Slider -->
+    <string name="slider_heading_needy">Needy </string>
+    <string name="slider_heading_ngo">NGO</string>
+    <string name="slider_heading_donar">Donar</string>
+    <string name="slider_heading_volunteer">Volunteer</string>
+
+    <!-- The Detail Description Value in intro Slider -->
+    <string name="slider_desc_needy">Needy is the person who has to ask for the data</string>
+    <string name="slider_desc_ngo">NGO is the people who has to ask for the food that has to be delivered</string>
+    <string name="slider_desc_donar">Donar is the person who donates everything to the needy</string>
+    <string name="slider_desc_volunteer">Volunteer is the person who to the needy by self going or by giving up the foods to the needy</string>
+
+
+</resources>
