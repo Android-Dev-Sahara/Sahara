@@ -113,4 +113,10 @@ public class IntroSlider extends AppCompatActivity {
     {
         viewPager.setCurrentItem(position_viewpager + 1);
     }
+
+    public void letsStartClick(View view)
+    {
+        startActivity(new Intent(this, LoginSignUpDashboard.class));
+        finish();
+    }
 }

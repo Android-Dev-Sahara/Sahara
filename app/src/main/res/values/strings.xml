@@ -16,5 +16,12 @@
     <string name="slider_desc_donar">Donar is the person who donates everything to the needy</string>
     <string name="slider_desc_volunteer">Volunteer is the person who to the needy by self going or by giving up the foods to the needy</string>
 
+    <!--Login Sign UP Dashboard-->
+    <string name="loginsignup_dashboard_covid">Covid 19\nMaintain  Social Distance </string>
+    <string name="loginsignup_dashboard_food">Food For Everyone</string>
+
+    <string name="loginsignup_button_login">LOGIN</string>
+    <string name="loginsignup_button_signup">SIGNUP</string>
+    <string name="loginsignup_button_work">How we Work ? </string>
 
 </resources>

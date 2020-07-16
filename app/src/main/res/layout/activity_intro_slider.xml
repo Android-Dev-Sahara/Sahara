@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00000000"
+        android:textStyle="bold"
         android:drawableEnd="@drawable/intro_image_skip"
         android:drawableRight="@drawable/intro_image_skip"
         android:onClick="introSkip"
@@ -46,6 +47,8 @@
             android:background="@color/colorPrimary"
             android:visibility="invisible"
             android:text="@string/introslider_button_start"
+            android:onClick="letsStartClick"
+            android:textStyle="bold"
             />
 
         <LinearLayout
