@@ -20,10 +20,10 @@
     </androidx.viewpager.widget.ViewPager>
 
     <Button
-        android:id="@+id/btn_skip"
+        android:id="@+id/btn_skip_slider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#00000000"
+        android:background="@color/transparent"
         android:textStyle="bold"
         android:drawableEnd="@drawable/intro_image_skip"
         android:drawableRight="@drawable/intro_image_skip"
@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btn_start"
+            android:id="@+id/btn_start_slider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -59,12 +59,12 @@
             android:orientation="horizontal" />
 
         <Button
-            android:id="@+id/btn_next"
+            android:id="@+id/btn_next_slider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:background="#00000000"
+            android:background="@color/transparent"
             android:onClick="introNext"
             android:drawableEnd="@drawable/intro_image_arrow_right" />
     </RelativeLayout>
