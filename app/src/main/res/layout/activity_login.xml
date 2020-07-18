@@ -98,6 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
+            android:onClick="loginForgotPassword"
             android:background="@color/transparent"
             android:text="@string/login_button_Forgot"
             android:textAllCaps="true"

@@ -28,6 +28,8 @@ public class Login extends AppCompatActivity {
     }
     public void loginForgotPassword(View view)
     {
+        Intent intent = new Intent(Login.this, ForgotPassword.class);
+        startActivity(intent);
 
     }
     public void loginLoginButton(View view)
