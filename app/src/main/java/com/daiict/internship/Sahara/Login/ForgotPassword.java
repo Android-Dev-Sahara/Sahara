@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.daiict.internship.Sahara.R;
+
 public class ForgotPassword extends AppCompatActivity {
 
     @Override

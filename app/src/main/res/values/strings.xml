@@ -24,4 +24,15 @@
     <string name="loginsignup_button_signup">SIGNUP</string>
     <string name="loginsignup_button_work">How we Work ? </string>
 
+    <!--Login Acitvity-->
+    <string name="login_text_login">LOGIN</string>
+    <string name="login_button_Forgot">Forgot Password ?</string>
+
+    <string name="login_button_login">Login</string>
+    <string name="login_button_create">Create Account</string>
+
+    <string name="login_edit_username">Email ID</string>
+    <string name="login_edit_password">Password</string>
+
+
 </resources>

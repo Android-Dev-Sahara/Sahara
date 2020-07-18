@@ -33,7 +33,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_signup"
+                android:id="@+id/btn_signup_dashboard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -44,7 +44,7 @@
                 android:text="@string/loginsignup_button_signup" />
 
             <Button
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_login_dashboard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -52,11 +52,12 @@
                 android:textStyle="bold"
                 android:onClick="dashboardLogin"
                 android:background="@color/colorPrimary"
-                android:text="@string/loginsignup_button_login" />
+                android:text="@string/loginsignup_button_login"
+                android:transitionName="btn_login_transition"/>
 
         </LinearLayout>
         <Button
-            android:id="@+id/btn_work"
+            android:id="@+id/btn_work_dashboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

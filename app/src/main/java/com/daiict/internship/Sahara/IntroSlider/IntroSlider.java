@@ -50,7 +50,7 @@ public class IntroSlider extends AppCompatActivity {
         viewPager.setAdapter(sliderAdapter) ;
 
         //bind button
-        btn_letsstart = findViewById(R.id.btn_start);
+        btn_letsstart = findViewById(R.id.btn_start_slider);
 
         addDots(0);
         viewPager.addOnPageChangeListener(onPageChangeListener);
