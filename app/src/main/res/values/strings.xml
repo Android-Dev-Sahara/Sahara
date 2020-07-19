@@ -24,7 +24,7 @@
     <string name="loginsignup_button_signup">SIGNUP</string>
     <string name="loginsignup_button_work">How we Work ? </string>
 
-    <!--Login Acitvity-->
+    <!--Login Activity-->
     <string name="login_text_login">LOGIN</string>
     <string name="login_button_Forgot">Forgot Password ?</string>
 
@@ -33,6 +33,58 @@
 
     <string name="login_edit_username">Email ID</string>
     <string name="login_edit_password">Password</string>
+
+    <!--Selection Of category Activity-->
+    <string name="selection_category_text_role">Select Your Role</string>
+
+    <!--SignUp Activity Page 1-->
+    <string name="signup_page1_text_title">Create\nAccount</string>
+    <string name="signup_page1_edit_fname">First Name</string>
+
+    <string name="signup_page1_edit_lname">Last Name</string>
+    <string name="signup_page1_edit_email">Email ID</string>
+    <string name="signup_page1_edit_pass">Password</string>
+    <string name="signup_page1_edit_ngo">NGO Name</string>
+
+    <string name="signup_page1_btn_next">Next</string>
+    <string name="signup_page1_btn_login">Login</string>
+
+    <!--SignUp Activity Page 2-->
+    <string name="signup_page2_text_title">Create\nAccount</string>
+    <string name="signup_page2_edit_add_line1">Address Line 1</string>
+
+    <string name="signup_page2_edit_add_line2">Address Line 2</string>
+    <string name="signup_page2_text_select_age">Select Your Age</string>
+
+    <string name="signup_page2_btn_next">Next</string>
+
+    <!--SignUp Activity Page 3-->
+    <string name="signup_page3_text_title">Create\nAccount</string>
+    <string name="signup_page3_edit_contact">contact Number</string>
+
+    <string name="signup_page3_spinner_city">Select City</string>
+    <string name="signup_page3_switch_city">Works with NGO?</string>
+    <string name="signup_page3_edit_ngo">Members in NGO</string>
+
+
+    <string name="signup_page3_rgrp_gender">Choose Gender</string>
+    <string name="signup_page3_rbtn_male">Male</string>
+    <string name="signup_page3_rbtn_female">Female</string>
+    <string name="signup_page3_rbtn_others">Others</string>
+
+    <string name="signup_page3_rgrp_volunteer">Volunteer Type</string>
+    <string name="signup_page3_rbtn_emergency">Emergency</string>
+    <string name="signup_page3_rbtn_fixed">Fixed</string>
+    <string name="signup_page3_rbtn_normal">Normal</string>
+
+    <string name="signup_page3_btn_signup">SignUP</string>
+
+
+
+
+
+
+
 
 
 </resources>
