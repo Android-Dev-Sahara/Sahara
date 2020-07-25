@@ -15,14 +15,16 @@ import com.google.android.material.textfield.TextInputLayout;
 public class SignUpPage3 extends AppCompatActivity {
 
     String get_category;
-    TextInputLayout inputLayout_ngo_members;
+    TextInputLayout inputLayout_ngo_members_family_member;
     Switch aSwitch_worksfor;
     LinearLayout linearLayout_volunteer_gender, linearLayout_volunteer_type;
 
+    private String s_firstname,s_lname,s_emailid,s_password,s_ngoname,s_address1,s_address2,s_dob;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page3);
+        fetchData();
         viewVisibility();
 
     }
@@ -47,7 +49,7 @@ public class SignUpPage3 extends AppCompatActivity {
         linearLayout_volunteer_gender = findViewById(R.id.linearlayout_signup_third_gender);
         linearLayout_volunteer_type = findViewById(R.id.linearlayout_signup_third_volunteer);
 
-        inputLayout_ngo_members = findViewById(R.id.txtlayout_signup_third_ngo);
+        inputLayout_ngo_members_family_member = findViewById(R.id.txtlayout_signup_third_ngo);
 
 
         if (get_category.equalsIgnoreCase("volunteer")) {
@@ -56,11 +58,27 @@ public class SignUpPage3 extends AppCompatActivity {
             linearLayout_volunteer_type.setVisibility(View.VISIBLE);
 
         } else if (get_category.equalsIgnoreCase("ngo")) {
-            inputLayout_ngo_members.setVisibility(View.VISIBLE);
+            inputLayout_ngo_members_family_member.setVisibility(View.VISIBLE);
         } else if (get_category.equalsIgnoreCase("needy")) {
+            linearLayout_volunteer_gender.setVisibility(View.VISIBLE);
+            inputLayout_ngo_members_family_member.setVisibility(View.VISIBLE);
+            inputLayout_ngo_members_family_member.setHint("Family Member Count ");
 
         } else {
-
+            linearLayout_volunteer_gender.setVisibility(View.VISIBLE);
         }
+    }
+    private void fetchData()
+    {
+        Intent intent = getIntent();
+        s_firstname = intent.getStringExtra("FirstName");
+        s_lname = intent.getStringExtra("LastName");
+        s_emailid = intent.getStringExtra("EmailId");
+        s_password = intent.getStringExtra("Password");
+        s_ngoname = intent.getStringExtra("ngoname");
+        s_address1 = intent.getStringExtra("address1");
+        s_address2 = intent.getStringExtra("address2");
+        s_dob = intent.getStringExtra("dob");
+
     }
 }

@@ -119,6 +119,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
+                android:buttonTint="@color/black"
+                android:shadowColor="@color/black"
                 android:text="@string/signup_page3_switch_city"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -154,6 +156,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_male"
+                        android:buttonTint="@color/black"
                         android:textStyle="bold" />
 
                     <RadioButton
@@ -161,6 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_female"
+                        android:buttonTint="@color/black"
                         android:textStyle="bold" />
 
                     <RadioButton
@@ -168,6 +172,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_others"
+                        android:buttonTint="@color/black"
                         android:textStyle="bold" />
                 </RadioGroup>
 
@@ -210,6 +215,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_emergency"
+                        android:buttonTint="@color/black"
                         android:textStyle="bold" />
 
                     <RadioButton
@@ -217,6 +223,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_normal"
+                        android:buttonTint="@color/black"
                         android:textStyle="bold" />
 
                     <RadioButton
@@ -224,6 +231,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_fixed"
+                        android:buttonTint="@color/black"
                         android:textStyle="bold" />
                 </RadioGroup>
 

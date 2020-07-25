@@ -23,6 +23,7 @@
             android:transitionName="create_account_back_btn" />
 
         <TextView
+            android:id="@+id/text_signup_second_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -100,6 +101,7 @@
 
 
         <TextView
+            android:id="@+id/text_signup_second_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -124,10 +126,10 @@
             android:layout_marginTop="10dp"
             android:background="@color/black"
             android:onClick="nextBtnSignUpS"
-            android:textAllCaps="true"
-            android:textStyle="bold"
             android:text="@string/signup_page2_btn_next"
+            android:textAllCaps="true"
             android:textColor="@color/white"
+            android:textStyle="bold"
             android:transitionName="create_account_next_btn" />
     </LinearLayout>
 

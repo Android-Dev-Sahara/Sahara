@@ -17,32 +17,32 @@ public class SelectionCategory extends AppCompatActivity {
     }
 
     public void categoryNeedy(View view) {
-        Intent intent = new Intent(this,SignUpPage1.class);
-        intent.putExtra("category","Needy");
+        Intent intent = new Intent(this, SignUpPage1.class);
+        intent.putExtra("category", "Needy");
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
     }
 
     public void categoryVolunteer(View view) {
-        Intent intent = new Intent(this,SignUpPage1.class);
-        intent.putExtra("category","Volunteer");
+        Intent intent = new Intent(this, SignUpPage1.class);
+        intent.putExtra("category", "Volunteer");
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
     }
 
     public void categoryNgo(View view) {
-        Intent intent = new Intent(this,SignUpPage1.class);
-        intent.putExtra("category","NGO");
+        Intent intent = new Intent(this, SignUpPage1.class);
+        intent.putExtra("category", "NGO");
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
     }
 
     public void categoryDonor(View view) {
-        Intent intent = new Intent(this,SignUpPage1.class);
-        intent.putExtra("category","Donor");
+        Intent intent = new Intent(this, SignUpPage1.class);
+        intent.putExtra("category", "Donor");
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
