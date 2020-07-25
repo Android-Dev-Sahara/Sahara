@@ -46,7 +46,7 @@
             android:onClick="categoryVolunteer"/>
 
         <ImageView
-            android:id="@+id/category_imgv_needyr"
+            android:id="@+id/category_imgv_needy"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:src="@drawable/category_img_needy"

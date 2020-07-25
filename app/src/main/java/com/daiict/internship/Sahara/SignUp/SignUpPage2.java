@@ -40,7 +40,7 @@ public class SignUpPage2 extends AppCompatActivity {
 
 
     public void backBtnSignUpS(View view) {
-        Intent intent = new Intent(this, SignUpPage1.class);
+        Intent intent = new Intent(SignUpPage2.this, SignUpPage1.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

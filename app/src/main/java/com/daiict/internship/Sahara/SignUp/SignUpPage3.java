@@ -19,7 +19,8 @@ public class SignUpPage3 extends AppCompatActivity {
     Switch aSwitch_worksfor;
     LinearLayout linearLayout_volunteer_gender, linearLayout_volunteer_type;
 
-    private String s_firstname,s_lname,s_emailid,s_password,s_ngoname,s_address1,s_address2,s_dob;
+    private String s_firstname, s_lname, s_emailid, s_password, s_ngoname, s_address1, s_address2, s_dob;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +31,14 @@ public class SignUpPage3 extends AppCompatActivity {
     }
 
     public void backBtnSignUpT(View view) {
-        Intent intent = new Intent(this, SignUpPage2.class);
+        Intent intent = new Intent(SignUpPage3.this, SignUpPage2.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
 
     }
 
     public void nextBtnSignUpT(View view) {
+
 
     }
 
@@ -68,8 +70,8 @@ public class SignUpPage3 extends AppCompatActivity {
             linearLayout_volunteer_gender.setVisibility(View.VISIBLE);
         }
     }
-    private void fetchData()
-    {
+
+    private void fetchData() {
         Intent intent = getIntent();
         s_firstname = intent.getStringExtra("FirstName");
         s_lname = intent.getStringExtra("LastName");
