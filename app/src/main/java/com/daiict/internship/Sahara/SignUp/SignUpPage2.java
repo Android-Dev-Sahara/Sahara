@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daiict.internship.Sahara.Login.Login;
 import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
 import com.daiict.internship.Sahara.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -40,8 +41,9 @@ public class SignUpPage2 extends AppCompatActivity {
 
 
     public void backBtnSignUpS(View view) {
-        Intent intent = new Intent(SignUpPage2.this, SignUpPage1.class);
+        Intent intent = new Intent(this, SignUpPage1.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("category",get_category);
         startActivity(intent);
     }
 
