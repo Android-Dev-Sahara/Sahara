@@ -20,7 +20,9 @@
             android:onClick="backBtnSignUpT"
             android:padding="5dp"
             android:src="@drawable/login_back_btn"
-            android:transitionName="create_account_back_btn" />
+            android:transitionName="create_account_back_btn"
+            tools:targetApi="lollipop"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,7 +34,8 @@
             android:textColor="@color/black"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:transitionName="create_account_titile_text" />
+            android:transitionName="create_account_titile_text"
+            tools:targetApi="lollipop" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,8 +86,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_gravity="right"
-                    android:layout_marginLeft="40dp" />
+                    android:layout_marginStart="40dp"
+                    android:entries="@array/cities" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/cityErrorMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_city"
+                android:textSize="16sp"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtlayout_signup_third_ngo"
@@ -108,7 +121,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/muli_black"
                     android:inputType="number"
-                    android:maxLength="3" />
+                    android:maxLength="5" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -124,7 +137,8 @@
                 android:text="@string/signup_page3_switch_city"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:targetApi="lollipop" />
 
             <LinearLayout
                 android:id="@+id/linearlayout_signup_third_gender"
@@ -157,7 +171,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_male"
                         android:buttonTint="@color/black"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:targetApi="lollipop" />
 
                     <RadioButton
                         android:id="@+id/rbtn_signup_third_female"
@@ -165,7 +180,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_female"
                         android:buttonTint="@color/black"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:targetApi="lollipop" />
 
                     <RadioButton
                         android:id="@+id/rbtn_signup_third_others"
@@ -173,7 +189,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_others"
                         android:buttonTint="@color/black"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:targetApi="lollipop" />
                 </RadioGroup>
 
 
@@ -216,7 +233,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_emergency"
                         android:buttonTint="@color/black"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:targetApi="lollipop" />
 
                     <RadioButton
                         android:id="@+id/rbtn_signup_third_normal"
@@ -224,7 +242,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_normal"
                         android:buttonTint="@color/black"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:targetApi="lollipop" />
 
                     <RadioButton
                         android:id="@+id/rbtn_signup_third_fixed"
@@ -232,7 +251,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/signup_page3_rbtn_fixed"
                         android:buttonTint="@color/black"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:targetApi="lollipop" />
                 </RadioGroup>
 
 
@@ -251,7 +271,8 @@
             android:textAllCaps="true"
             android:text="@string/signup_page3_btn_signup"
             android:textColor="@color/white"
-            android:transitionName="create_account_next_btn" />
+            android:transitionName="create_account_next_btn"
+            tools:targetApi="lollipop" />
     </LinearLayout>
 
 </ScrollView>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,28 +28,32 @@
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/category_img_donor"
-            android:onClick="categoryDonor"/>
+            android:onClick="categoryDonor"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/category_imgv_ngo"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:src="@drawable/categoy_img_ngo"
-            android:onClick="categoryNgo"/>
+            android:onClick="categoryNgo"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/category_imgv_volunteer"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:src="@drawable/category_img_volunteer"
-            android:onClick="categoryVolunteer"/>
+            android:onClick="categoryVolunteer"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/category_imgv_needy"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:src="@drawable/category_img_needy"
-            android:onClick="categoryNeedy"/>
+            android:onClick="categoryNeedy"
+            tools:ignore="ContentDescription" />
 
     </LinearLayout>
 

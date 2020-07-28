@@ -1,21 +1,19 @@
 package com.daiict.internship.Sahara.SignUp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-
-import com.daiict.internship.Sahara.IntroSlider.IntroSlider;
 import com.daiict.internship.Sahara.R;
 
 public class SelectionCategory extends AppCompatActivity {
 
     Animation btn_Animation;
     ImageView needy,ngo,donor,volunteer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,33 +22,33 @@ public class SelectionCategory extends AppCompatActivity {
     }
 
     public void categoryNeedy(View view) {
+        // Actor: Needy Person
         Intent intent = new Intent(this, SignUpPage1.class);
-        intent.putExtra("category", "Needy");
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        SignUpSingle.getInstance().setActor("Needy");       // Singleton Usage
         startActivity(intent);
         finish();
     }
 
     public void categoryVolunteer(View view) {
+        // Actor: Volunteer
         Intent intent = new Intent(this, SignUpPage1.class);
-        intent.putExtra("category", "Volunteer");
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        SignUpSingle.getInstance().setActor("Volunteer");       // Singleton Usage
         startActivity(intent);
         finish();
     }
 
     public void categoryNgo(View view) {
+        // Actor: NGO
         Intent intent = new Intent(this, SignUpPage1.class);
-        intent.putExtra("category", "NGO");
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        SignUpSingle.getInstance().setActor("NGO");       // Singleton Usage
         startActivity(intent);
         finish();
     }
 
     public void categoryDonor(View view) {
+        // Actor: Donor
         Intent intent = new Intent(this, SignUpPage1.class);
-        intent.putExtra("category", "Donor");
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        SignUpSingle.getInstance().setActor("Donor");       // Singleton Usage
         startActivity(intent);
         finish();
 
@@ -58,6 +56,8 @@ public class SelectionCategory extends AppCompatActivity {
 
     private void btnAnimationView()
     {
+        // Starting Function of the Activity...
+        // Binding UI Widgets..
         needy = findViewById(R.id.category_imgv_needy);
         ngo = findViewById(R.id.category_imgv_ngo);
         volunteer = findViewById(R.id.category_imgv_volunteer);
@@ -68,7 +68,5 @@ public class SelectionCategory extends AppCompatActivity {
         ngo.setAnimation(btn_Animation);
         volunteer.setAnimation(btn_Animation);
         donor.setAnimation(btn_Animation);
-
     }
-
 }
