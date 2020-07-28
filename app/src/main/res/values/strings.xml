@@ -78,13 +78,11 @@
     <string name="signup_page3_rbtn_normal">Normal</string>
 
     <string name="signup_page3_btn_signup">SignUP</string>
+    <string name="empty_password">Please Enter Password</string>
+    <string name="password_message"><b>TOO WEAK!!</b>\nPassword has minimum 8 characters and has at least one Number[0–9],one Uppercase[A-Z],one Lowercase[a-z] and one Special Character[@#$%^*=+]</string>
 
-
-
-
-
-
-
-
-
+    <string name="estalbished_year">Established Year</string>
+    <string name="birthdate_selection">Select Your Birth Date</string>
+    <string name="invalid_date">Invalid Date</string>
+    <string name="select_city">Please Select the City</string>
 </resources>

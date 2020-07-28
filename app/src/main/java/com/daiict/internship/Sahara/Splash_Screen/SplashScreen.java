@@ -2,6 +2,7 @@ package com.daiict.internship.Sahara.Splash_Screen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -55,6 +56,7 @@ public class SplashScreen extends AppCompatActivity {
         //within run intent passed
 
         new Handler().postDelayed(new Runnable() {
+            @SuppressLint("ApplySharedPref")
             @Override
             public void run() {
                 shared_introslider = getSharedPreferences("introSlider", MODE_PRIVATE);
