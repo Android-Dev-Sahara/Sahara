@@ -20,7 +20,8 @@
             android:onClick="backBtnSignUpS"
             android:padding="5dp"
             android:src="@drawable/login_back_btn"
-            android:transitionName="create_account_back_btn" />
+            android:transitionName="create_account_back_btn"
+            tools:targetApi="lollipop" />
 
         <TextView
             android:id="@+id/text_signup_second_title"
@@ -33,7 +34,8 @@
             android:textColor="@color/black"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:transitionName="create_account_titile_text" />
+            android:transitionName="create_account_titile_text"
+            tools:targetApi="lollipop" />
 
 
         <LinearLayout
@@ -105,7 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/signup_page2_text_select_age"
+            android:text="@string/birthdate_selection"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -116,7 +118,18 @@
             android:layout_height="wrap_content"
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
-            android:spinnersShown="true" />
+            android:spinnersShown="true"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/invalid_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/invalid_date"
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:visibility="gone"/>
 
 
         <Button
@@ -130,7 +143,8 @@
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:transitionName="create_account_next_btn" />
+            android:transitionName="create_account_next_btn"
+            tools:targetApi="lollipop" />
     </LinearLayout>
 
 </ScrollView>
