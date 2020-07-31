@@ -46,14 +46,14 @@
             <Button
                 android:id="@+id/btn_login_dashboard"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="34dp"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:textStyle="bold"
-                android:onClick="dashboardLogin"
                 android:background="@color/colorPrimary"
+                android:onClick="dashboardLogin"
                 android:text="@string/loginsignup_button_login"
-                android:transitionName="btn_login_transition"/>
+                android:textStyle="bold"
+                android:transitionName="btn_login_transition" />
 
         </LinearLayout>
         <Button
