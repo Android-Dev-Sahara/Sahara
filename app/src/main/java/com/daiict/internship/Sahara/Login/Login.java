@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.daiict.internship.Sahara.LoginSignUPDashboard.AppWorkDetails;
 import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SelectionCategory;
+import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
 
 public class Login extends AppCompatActivity {
 
@@ -34,7 +36,9 @@ public class Login extends AppCompatActivity {
     }
     public void loginLoginButton(View view)
     {
-
+        Toast.makeText(this, "login Button Pressed", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Login.this, BottomNavigationUsers.class);
+        startActivity(intent);
     }
     public void loginCreateAccount(View view)
     {
