@@ -91,6 +91,7 @@ public class Login extends AppCompatActivity {
                         //Go to the profile page of respective role...
                         Toast.makeText(Login.this,"Login Successful!!",Toast.LENGTH_LONG).show();
                        Intent intent = new Intent(Login.this, BottomNavigationUsers.class);
+                       intent.putExtra("Fragment","homefragment");
                          startActivity(intent);
                     }
                     else
@@ -104,6 +105,7 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+
 
 
     }
