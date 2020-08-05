@@ -38,6 +38,8 @@ public class Login extends AppCompatActivity {
     {
         Toast.makeText(this, "login Button Pressed", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Login.this, BottomNavigationUsers.class);
+        //This intent is just passed to the user Dashboard because to maintain the proper view of fragments and maintain the back buttons.
+        //intent.putExtra("Fragment","homefragment");
         startActivity(intent);
     }
     public void loginCreateAccount(View view)
