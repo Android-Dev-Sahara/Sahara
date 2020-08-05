@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "810870098898",
+    "firebase_url": "https://sahara-a-step-towards-needy.firebaseio.com",
+    "project_id": "sahara-a-step-towards-needy",
+    "storage_bucket": "sahara-a-step-towards-needy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810870098898:android:8239a420ed054ac86bd60b",
+        "android_client_info": {
+          "package_name": "com.daiict.internship.Sahara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810870098898-vl7j1ad2d09md7m6nht50k7odqd0iigj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.daiict.internship.Sahara",
+            "certificate_hash": "c61ed4df5ab233526ca96b4ae7d4a2f0be2e1c49"
+          }
+        },
+        {
+          "client_id": "810870098898-71h9r5s3fkdnm4fndvdirvquqn61gfth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC56IzcSboWkwdAeuVtdXDJximv5XQO4CU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810870098898-71h9r5s3fkdnm4fndvdirvquqn61gfth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810870098898:android:785514e435beff4c6bd60b",
+        "android_client_info": {
+          "package_name": "com.example.splashandintroslider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810870098898-71h9r5s3fkdnm4fndvdirvquqn61gfth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC56IzcSboWkwdAeuVtdXDJximv5XQO4CU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810870098898-71h9r5s3fkdnm4fndvdirvquqn61gfth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
