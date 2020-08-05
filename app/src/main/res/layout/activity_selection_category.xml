@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:background="@color/colorPrimary"
     tools:context=".SignUp.SelectionCategory">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee"
+            android:text="@string/selection_category_text_role"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="30sp"/>
+
+        <ImageView
+            android:id="@+id/category_imgv_donor"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/category_img_donor"
+            android:onClick="categoryDonor"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/category_imgv_ngo"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/categoy_img_ngo"
+            android:onClick="categoryNgo"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/category_imgv_volunteer"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/category_img_volunteer"
+            android:onClick="categoryVolunteer"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/category_imgv_needy"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/category_img_needy"
+            android:onClick="categoryNeedy"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+</ScrollView>

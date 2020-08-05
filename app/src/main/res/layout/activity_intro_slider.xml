@@ -30,7 +30,8 @@
         android:onClick="introSkip"
         android:text="@string/introslider_button_skip"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded" />
 
     <RelativeLayout
         android:id="@+id/layout_relativeLayout"

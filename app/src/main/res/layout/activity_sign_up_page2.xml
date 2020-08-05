@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:padding="30dp"
-    android:transitionName="btn_login_transition"
-    tools:context=".Login.Login">
+    tools:context=".SignUp.SignUpPage2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,52 +14,59 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/login_btn_back"
+            android:id="@+id/btn_signup_second_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="backBtnSignUpS"
             android:padding="5dp"
-            android:onClick="loginBack"
-            android:src="@drawable/login_back_btn" />
+            android:src="@drawable/login_back_btn"
+            android:transitionName="create_account_back_btn"
+            tools:targetApi="lollipop" />
 
         <TextView
+            android:id="@+id/text_signup_second_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/muli_black"
-            android:text="@string/login_text_login"
+            android:text="@string/signup_page2_text_title"
+            android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:transitionName="create_account_titile_text"
+            tools:targetApi="lollipop" />
+
 
         <LinearLayout
+            android:id="@+id/linearlayoutAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
+
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/login_edit_username"
+                android:hint="@string/signup_page2_edit_add_line1"
                 android:textColor="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/login_username_icon"
+                app:startIconDrawable="@drawable/signup_pages_textinput"
                 app:startIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login_edit_username"
+                    android:id="@+id/edtxt_signup_second_address1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/muli_black"
                     android:inputType="textEmailAddress" />
 
-                <!--Always remember to use material design components first add up the dependency and after that go to styles.xml and there change
-                style tag from current to new -> <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge"> otherwise the application will crash-->
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,69 +74,77 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/login_edit_password"
+                android:hint="@string/signup_page2_edit_add_line2"
                 android:textColor="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
-                android:layout_marginTop="10dp"
-                app:endIconMode="password_toggle"
+                app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/login_password_icon"
+                app:startIconDrawable="@drawable/signup_pages_textinput"
                 app:startIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login_edit_password"
+                    android:id="@+id/edtxt_signup_second_address2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/muli_black"
-                    android:inputType="textPassword" />
+                    android:inputType="textEmailAddress" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
         </LinearLayout>
 
-
-        <Button
-            android:id="@+id/login_btn_forgotpass"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:onClick="loginForgotPassword"
-            android:background="@color/transparent"
-            android:text="@string/login_button_Forgot"
-            android:textAllCaps="true"
-            android:textStyle="bold" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/black" />
 
 
-        <Button
-            android:id="@+id/login_btn_login"
+        <TextView
+            android:id="@+id/text_signup_second_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@color/black"
-            android:onClick="loginLoginButton"
-            android:text="@string/login_button_login"
-            android:textAllCaps="true"
-            android:onClick="loginLoginButton"
-            android:textColor="@color/white" />
-
-        <Button
-            android:id="@+id/login_btn_createacc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="loginCreateAccount"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@color/transparent"
-            android:text="@string/login_button_create"
-            android:textAllCaps="true"
+            android:text="@string/birthdate_selection"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
+        <DatePicker
+            android:id="@+id/datepi_signup_second_age_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
+            android:spinnersShown="true"
+            tools:targetApi="lollipop" />
 
+        <TextView
+            android:id="@+id/invalid_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/invalid_date"
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:visibility="gone"/>
+
+
+        <Button
+            android:id="@+id/btn_signup_second_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/black"
+            android:onClick="nextBtnSignUpS"
+            android:text="@string/signup_page2_btn_next"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:transitionName="create_account_next_btn"
+            tools:targetApi="lollipop" />
     </LinearLayout>
-
 
 </ScrollView>
