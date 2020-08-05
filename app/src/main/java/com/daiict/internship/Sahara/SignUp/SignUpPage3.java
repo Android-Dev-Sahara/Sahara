@@ -77,6 +77,7 @@ public class SignUpPage3 extends AppCompatActivity {
         if (validateContact() && validateCitySpinner() && validateGender() && validateVolunteerType() && validateMemberCount()) {
             btn_signup = findViewById(R.id.btn_signup_third_signup);
             btn_signup.setEnabled(false);
+            // Progress Dialog....
             // SignUp Process Start
             String contact = editText_contact.getText().toString().trim();
             String cityName = spin_signup_third_city.getSelectedItem().toString();
