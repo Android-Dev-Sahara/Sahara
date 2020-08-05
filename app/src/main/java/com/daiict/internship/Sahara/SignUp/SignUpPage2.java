@@ -45,7 +45,6 @@ public class SignUpPage2 extends AppCompatActivity {
     public void backBtnSignUpS(View view) {
         Intent intent = new Intent(this, SignUpPage1.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("category", get_category);
         startActivity(intent);
     }
 

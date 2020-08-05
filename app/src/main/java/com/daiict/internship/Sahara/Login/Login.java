@@ -15,6 +15,7 @@ import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
 import com.daiict.internship.Sahara.ModelData.VolunteerModelData;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SelectionCategory;
+import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
 
 import com.daiict.internship.Sahara.SignUp.SignUpSingle;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -89,6 +90,8 @@ public class Login extends AppCompatActivity {
                         ref.child(mAuth.getUid()).child("userIsVerified").setValue("Yes");
                         //Go to the profile page of respective role...
                         Toast.makeText(Login.this,"Login Successful!!",Toast.LENGTH_LONG).show();
+                       Intent intent = new Intent(Login.this, BottomNavigationUsers.class);
+                         startActivity(intent);
                     }
                     else
                     {

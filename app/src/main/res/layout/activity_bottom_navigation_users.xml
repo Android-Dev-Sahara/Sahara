@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserDashboard.BottomNavigationUsers">
+
+    <RelativeLayout
+        android:id="@+id/bottom_nav_users_containers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lightwhite"
+        android:visibility="gone">
+
+        <com.ismaeldivita.chipnavigation.ChipNavigationBar
+            android:id="@+id/bottom_nav_users_chipnav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:background="@drawable/roundingup_corners_botom_nav"
+            android:elevation="15dp"
+            app:cnb_menuResource="@menu/bottom_navigation_menu_bar"
+            app:cnb_orientationMode="horizontal"
+            app:cnb_radius="8dp"
+            app:cnb_unselectedColor="@color/black" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_nav_users_containers_lessapi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/lightwhite">
+
+
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav_users_material_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            app:itemBackground="@color/colorPrimary"
+            app:itemIconTint="@drawable/bottom_nav_users_color_lessapi"
+            app:itemTextColor="@drawable/bottom_nav_users_color_lessapi"
+            app:menu="@menu/bottom_navigation_menu_bar" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
