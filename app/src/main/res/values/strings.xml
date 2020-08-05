@@ -85,4 +85,35 @@
     <string name="birthdate_selection">Select Your Birth Date</string>
     <string name="invalid_date">Invalid Date</string>
     <string name="select_city">Please Select the City</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Add Donor Fragment -->
+    <string name="add_donor_popup_close">X</string>
+    <string name="add_donor_popup_ttile">Add an Item</string>
+    <string name="add_donor_popup_hint_item">Item Name</string>
+    <string name="add_donor_popup_hint_persons">No. of Persons</string>
+    <string name="add_donor_popup_hint_weight">Weight of food(approx)</string>
+    <string name="add_donor_popup_hint_spoilage">Spoilage</string>
+    <string name="add_donor_popup_button_text">Add to Basket</string>
+
+
+    <string name="add_donor_fragment_title_first">Thanks a Ton to Donate</string>
+    <string name="add_donor_fragment_title_second">Lets Quickly add details</string>
+    <string name="add_donor_fragment_date_donation">Select The Date You Want to Donate</string>
+    <string name="add_donor_fragment_switch_raw">Does it contain Raw Food</string>
+    <string name="add_donor_fragment_switch_self_donation">Do you want Volunteer to pickup</string>
+    <string name="add_donor_fragment_text_pickup_time">Pick UP Time</string>
+    <string name="add_donor_fragment_button_text">Proceed</string>
+
+
+    <!--Add Donor Recycler View and cardView -->
+    <string name="add_donor_cardview_text_itemname">Item Name</string>
+    <string name="add_donor_cardview_text_noofpersons">No. Of Persons</string>
+    <string name="add_donor_cardview_text_weight">Weight</string>
+    <string name="add_donor_cardview_text_spoilage">Spoilage</string>
+    <string name="add_donor_activity_button_donate">Donate</string>
+
+
 </resources>

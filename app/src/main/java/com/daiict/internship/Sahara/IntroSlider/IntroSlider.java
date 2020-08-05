@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
 import com.daiict.internship.Sahara.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class IntroSlider extends AppCompatActivity {
 
@@ -34,10 +36,23 @@ public class IntroSlider extends AppCompatActivity {
 
     Button btn_letsstart;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro_slider);
+
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+
+        //If Active user and email is verified then only profile is opened...
+        //Not Active user then Login Button is not working...with this
+
+//        if(firebaseUser!=null && firebaseUser.isEmailVerified())
+//        {
+//            //Go to the role based profile page.
+//        }
 
         //Removing Status Bar from The top
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
