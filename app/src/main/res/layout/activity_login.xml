@@ -114,7 +114,6 @@
             android:onClick="loginLoginButton"
             android:text="@string/login_button_login"
             android:textAllCaps="true"
-            android:onClick="loginLoginButton"
             android:textColor="@color/white" />
 
         <Button

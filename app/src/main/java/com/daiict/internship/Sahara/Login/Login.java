@@ -42,24 +42,24 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuth = FirebaseAuth.getInstance();
-        get_category = SignUpSingle.getInstance().getActor();
-        Log.d("category",get_category);
-        if(get_category.equalsIgnoreCase("volunteer")){
-            ref= FirebaseDatabase.getInstance().getReference("Volunteer");
-        }
-        else if(get_category.equalsIgnoreCase("ngo"))
-        {
-            ref= FirebaseDatabase.getInstance().getReference("Ngo");
-        }
-        else if(get_category.equalsIgnoreCase("donar"))
-        {
-            ref= FirebaseDatabase.getInstance().getReference("Donar");
-        }
-        else if(get_category.equalsIgnoreCase("needy"))
-        {
-            ref= FirebaseDatabase.getInstance().getReference("Needy");
-        }
+          mAuth = FirebaseAuth.getInstance();
+//        get_category = SignUpSingle.getInstance().getActor();
+////        Log.d("category",get_category);
+//        if(get_category.equalsIgnoreCase("volunteer")){
+//            ref= FirebaseDatabase.getInstance().getReference("Volunteer");
+//        }
+//        else if(get_category.equalsIgnoreCase("ngo"))
+//        {
+//            ref= FirebaseDatabase.getInstance().getReference("Ngo");
+//        }
+//        else if(get_category.equalsIgnoreCase("donar"))
+//        {
+//            ref= FirebaseDatabase.getInstance().getReference("Donar");
+//        }
+//        else if(get_category.equalsIgnoreCase("needy"))
+//        {
+//            ref= FirebaseDatabase.getInstance().getReference("Needy");
+//        }
     }
 
     public void loginBack(View view)
@@ -77,34 +77,38 @@ public class Login extends AppCompatActivity {
     }
     public void loginLoginButton(View view)
     {
-        email=findViewById(R.id.login_edit_username);
-        pass=findViewById(R.id.login_edit_password);
 
-        mAuth.signInWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
-                    if(mAuth.getCurrentUser().isEmailVerified())
-                    {
-                        ref.child(mAuth.getUid()).child("userIsVerified").setValue("Yes");
-                        //Go to the profile page of respective role...
-                        Toast.makeText(Login.this,"Login Successful!!",Toast.LENGTH_LONG).show();
-                       Intent intent = new Intent(Login.this, BottomNavigationUsers.class);
-                       intent.putExtra("Fragment","homefragment");
-                         startActivity(intent);
-                    }
-                    else
-                    {
-                        Toast.makeText(Login.this,"Please verify your email address !",Toast.LENGTH_LONG).show();
-                    }
-                }
-                else
-                {
+        Intent intent = new Intent(Login.this, BottomNavigationUsers.class);
+        intent.putExtra("Fragment","homefragment");
+        startActivity(intent);
 
-                }
-            }
-        });
+//        email=findViewById(R.id.login_edit_username);
+//        pass=findViewById(R.id.login_edit_password);
+//
+//        mAuth.signInWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if(task.isSuccessful())
+//                {
+//                    if(mAuth.getCurrentUser().isEmailVerified())
+//                    {
+//                        ref.child(mAuth.getUid()).child("userIsVerified").setValue("Yes");
+//                        //Go to the profile page of respective role...
+//                        Toast.makeText(Login.this,"Login Successful!!",Toast.LENGTH_LONG).show();
+//
+//                    }
+//                    else
+//                    {
+//                        Toast.makeText(Login.this,"Please verify your email address !",Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//                else
+//                {
+//
+//                }
+//            }
+//        });
+
 
 
 
