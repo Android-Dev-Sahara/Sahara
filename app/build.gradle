@@ -41,6 +41,8 @@ dependencies {
     //For Using The chip Navigation that is available when API >= 23 && Kotlin is used to use the chip navigation in the Java
     implementation 'com.ismaeldivita.chipnavigation:chip-navigation-bar:1.3.2'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.72'
+    //Dependency added for making the images as circle view
+    implementation 'de.hdodenhof:circleimageview:2.0.0'
 
 
 
