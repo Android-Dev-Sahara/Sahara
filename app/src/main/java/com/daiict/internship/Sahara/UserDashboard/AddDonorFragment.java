@@ -20,7 +20,7 @@ public class AddDonorFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_donor, container, false);
-        Button button = (Button) view.findViewById(R.id.btn_adddonor_proceed);
+        Button button =view.findViewById(R.id.btn_adddonor_proceed);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
