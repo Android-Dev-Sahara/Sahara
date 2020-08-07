@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserDashboard.ProfileEditProfileActivity"></activity>
+        <activity android:name=".UserDashboard.ProfileSettingsFeedback"></activity>
+        <activity android:name=".UserDashboard.ProfileSettingsReportProblem" />
+        <activity android:name=".UserDashboard.ProfileEditProfileActivity" />
         <activity android:name=".UserDashboard.ProfileSettingsAcitivity" />
         <activity android:name=".UserDashboard.AddDonorAddItemAcitivity" />
         <activity android:name=".UserDashboard.BottomNavigationUsers" />

@@ -44,10 +44,18 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
     }
 
     public void reportProblemButtonPressed(View view) {
+        Intent intent = new Intent(this, ProfileSettingsReportProblem.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("Fragment",fragmentName);
+        startActivity(intent);
 
     }
 
     public void feedbackButtonPressed(View view) {
+        Intent intent = new Intent(this, ProfileSettingsFeedback.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("Fragment",fragmentName);
+        startActivity(intent);
 
     }
 
