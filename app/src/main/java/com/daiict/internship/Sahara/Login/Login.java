@@ -38,8 +38,8 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     DatabaseReference ref;
 
-    String userRole, userId;
-    boolean isUserVerified = false;
+    String userId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,12 +68,6 @@ public class Login extends AppCompatActivity {
     }
 
     public void btnLoginOnClick(View view) {
-
-        Intent intent = new Intent(Login.this, BottomNavigationUsers.class);
-        intent.putExtra("Fragment","homefragment");
-        startActivity(intent);
-
-        /*
         if (validateEmailAddress() && validatePassword()) {
             btnlogin.setEnabled(false);
             // Progress Dialog Here......
@@ -91,11 +85,11 @@ public class Login extends AppCompatActivity {
 
                         if (userId != null) {
                             if (Objects.requireNonNull(mAuth.getCurrentUser()).isEmailVerified()) {
-                                isUserVerified = true;
                                 Log.e("btnLoginOnClick: ", "Login Successfull");
-
+                                // Intent to Loading Activity
+                                Intent intent = new Intent(Login.this, CovidInfoActivity.class);
+                                startActivity(intent);
                             } else {
-                                isUserVerified = false;
                                 View rootView = getWindow().getDecorView().getRootView();
                                 Log.e("btnLoginOnClick: ", "Email is Not Verified");
                                 Snackbar verifyEmailMsg = Snackbar.make(rootView, "Please Verify your Email Address First!", Snackbar.LENGTH_LONG);
@@ -114,15 +108,7 @@ public class Login extends AppCompatActivity {
                     }
                 }
             });
-
-            Log.e( "btnLoginOnClick: ", "After Completion" + userId);
-            if (isUserVerified && userId != null) {
-                userRole = fetchUserCategory(userId);
-                Log.e("btnLoginOnClick: ", userRole);
-            }
         }
-
-        */
     }
 
     private String fetchUserCategory(final String userId) {
