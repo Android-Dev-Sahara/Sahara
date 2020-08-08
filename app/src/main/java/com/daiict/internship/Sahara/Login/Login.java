@@ -89,6 +89,7 @@ public class Login extends AppCompatActivity {
                                 // Intent to Loading Activity
                                 Intent intent = new Intent(Login.this, CovidInfoActivity.class);
                                 startActivity(intent);
+                                finish();
                             } else {
                                 View rootView = getWindow().getDecorView().getRootView();
                                 Log.e("btnLoginOnClick: ", "Email is Not Verified");

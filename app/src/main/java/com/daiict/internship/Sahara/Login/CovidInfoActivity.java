@@ -142,5 +142,6 @@ public class CovidInfoActivity extends AppCompatActivity {
         Intent intent = new Intent(CovidInfoActivity.this, BottomNavigationUsers.class);
         intent.putExtra("Fragment","homefragment");
         startActivity(intent);
+        finish();
     }
 }
