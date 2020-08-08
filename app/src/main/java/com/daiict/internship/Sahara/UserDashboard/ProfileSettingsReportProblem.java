@@ -27,5 +27,6 @@ public class ProfileSettingsReportProblem extends AppCompatActivity {
 
     public void submitButtonPressed(View view) {
 
+
     }
 }
