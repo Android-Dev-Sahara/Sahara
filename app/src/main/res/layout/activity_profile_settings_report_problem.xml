@@ -30,7 +30,7 @@
             android:layout_weight="5"
             android:fontFamily="@font/holtwood_one_sc"
             android:gravity="start"
-            android:text="Report"
+            android:text="@string/setting_report_prob_title"
             android:textAlignment="gravity"
             android:textSize="20sp" />
     </LinearLayout>
@@ -45,7 +45,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email ID"
+            android:hint="@string/setting_report_prob_hint_email"
             android:textColor="@color/black"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
@@ -69,7 +69,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:hint="Your Message"
+            android:hint="@string/setting_report_prob_hint_message"
             android:textColor="@color/black"
             app:boxStrokeColor="@color/black"
             android:layout_marginTop="20dp"
@@ -103,7 +103,7 @@
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
             android:onClick="submitButtonPressed"
-            android:text="Submit"
+            android:text="@string/setting_report_prob_btn_submit"
             android:fontFamily="@font/bungee"
             android:layout_marginTop="30dp"
             android:textColor="@color/black"/>
