@@ -62,46 +62,6 @@ public class SignUpPage3 extends AppCompatActivity {
 
     }
 
-    public void backBtnSignUpT(View view) {
-        Intent intent = new Intent(SignUpPage3.this, SignUpPage2.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
-    public void nextBtnSignUpT(View view) {
-        int selectedRadioButtonID;
-        RadioButton selectedRadioButton;
-
-        if (validateContact() && validateCitySpinner() && validateGender() && validateVolunteerType() && validateMemberCount()) {
-            btn_signup = findViewById(R.id.btn_signup_third_signup);
-            btn_signup.setEnabled(false);
-            // Progress Dialog....
-            // SignUp Process Start
-            String contact = editText_contact.getText().toString().trim();
-            String cityName = spin_signup_third_city.getSelectedItem().toString();
-            // Get Gender
-            selectedRadioButtonID = rgrp_gender.getCheckedRadioButtonId();
-            selectedRadioButton = (rgrp_gender.getCheckedRadioButtonId() != -1) ? (RadioButton) findViewById(selectedRadioButtonID) : null;
-            String gender = (selectedRadioButton != null) ? selectedRadioButton.getText().toString() : null;
-            // Get Volunteer Type
-            selectedRadioButtonID = rgrp_volunteer.getCheckedRadioButtonId();
-            selectedRadioButton = (rgrp_volunteer.getCheckedRadioButtonId() != -1) ? (RadioButton) findViewById(selectedRadioButtonID) : null;
-            String volunteerType = (selectedRadioButton != null) ? selectedRadioButton.getText().toString() : null;
-            String isWorkNgo = (aSwitch_worksfor.getVisibility() == View.VISIBLE) ? (aSwitch_worksfor.isChecked() ? "Yes" : "No") : null;
-            String memberCount = editText_ngo_member.getText().toString();
-
-            SignUpSingle.getInstance().setContactNo(contact);
-            SignUpSingle.getInstance().setCityName(cityName);
-            SignUpSingle.getInstance().setGender(gender);
-            SignUpSingle.getInstance().setVolunteerType(volunteerType);
-            SignUpSingle.getInstance().setIsWorkWithNgo(isWorkNgo);
-            SignUpSingle.getInstance().setMembersCount(memberCount);
-
-            // If all things and Validation are Correct then now Create User Account
-            createUserAccount();
-        }
-    }
-
     private void viewVisibility() {
         get_category = SignUpSingle.getInstance().getActor();
         aSwitch_worksfor = findViewById(R.id.switch_signup_third_works_with);
@@ -130,92 +90,49 @@ public class SignUpPage3 extends AppCompatActivity {
             linearLayout_volunteer_gender.setVisibility(View.VISIBLE);
         }
 
+        // Firebase Code Binding
         mAuth = FirebaseAuth.getInstance();
         mReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    private boolean validateContact() {
-        /*
-         * Conact Number Validation
-         * Empty - NonEmpty Validation
-         * Contact No Length
-         * Numeric Characters Only
-         * */
-
-        String contact = editText_contact.getText().toString().trim();
-
-        if (TextUtils.isEmpty(contact)) {
-            editText_contact.setError("Enter Contact Number");
-            return false;
-        } else if (contact.length() != 10) {
-            editText_contact.setError("Enter Valid Contact Number");
-            return false;
-        } else if (!contact.matches("[0-9]+")) {
-            editText_contact.setError("Enter Valid Contact Number");
-            return false;
-        } else {
-            return true;
-        }
+    public void backBtnSignUpT(View view) {
+        Intent intent = new Intent(SignUpPage3.this, SignUpPage2.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
-    private boolean validateCitySpinner() {
-        /*
-         * City Spinner Validation:
-         * To check whether the Selected Option is Valid or Not
-         * */
+    public void nextBtnSignUpT(View view) {
+        int selectedRadioButtonID;
+        RadioButton selectedRadioButton;
 
-        String cityName = spin_signup_third_city.getSelectedItem().toString();
+        if (validateContact() && validateCitySpinner() && validateGender() && validateVolunteerType() && validateMemberCount()) {
+            btn_signup = findViewById(R.id.btn_signup_third_signup);
+            btn_signup.setEnabled(false);
+            // Progress Dialog Here.......
+            // SignUp Process Start
+            String contact = editText_contact.getText().toString().trim();
+            String cityName = spin_signup_third_city.getSelectedItem().toString();
+            // Get Gender
+            selectedRadioButtonID = rgrp_gender.getCheckedRadioButtonId();
+            selectedRadioButton = (rgrp_gender.getCheckedRadioButtonId() != -1) ? (RadioButton) findViewById(selectedRadioButtonID) : null;
+            String gender = (selectedRadioButton != null) ? selectedRadioButton.getText().toString() : null;
+            // Get Volunteer Type
+            selectedRadioButtonID = rgrp_volunteer.getCheckedRadioButtonId();
+            selectedRadioButton = (rgrp_volunteer.getCheckedRadioButtonId() != -1) ? (RadioButton) findViewById(selectedRadioButtonID) : null;
+            String volunteerType = (selectedRadioButton != null) ? selectedRadioButton.getText().toString() : null;
+            String isWorkNgo = (aSwitch_worksfor.getVisibility() == View.VISIBLE) ? (aSwitch_worksfor.isChecked() ? "Yes" : "No") : null;
+            String memberCount = editText_ngo_member.getText().toString();
 
-        if (cityName.equalsIgnoreCase("--Select an Option--")) {
-            textView_cityErrorMsg.setVisibility(View.VISIBLE);
-            return false;
-        } else {
-            textView_cityErrorMsg.setVisibility(View.GONE);
-            return true;
+            SignUpSingle.getInstance().setContactNo(contact);
+            SignUpSingle.getInstance().setCityName(cityName);
+            SignUpSingle.getInstance().setGender(gender);
+            SignUpSingle.getInstance().setVolunteerType(volunteerType);
+            SignUpSingle.getInstance().setIsWorkWithNgo(isWorkNgo);
+            SignUpSingle.getInstance().setMembersCount(memberCount);
+
+            // If all things and Validation are Correct then now Create User Account
+            createUserAccount();
         }
-    }
-
-    private boolean validateGender() {
-        if ((!get_category.equalsIgnoreCase("ngo")) && rgrp_gender.getCheckedRadioButtonId() == -1) {
-            View rootView = getWindow().getDecorView().getRootView();
-            Snackbar genderErrMsg = Snackbar.make(rootView, "Select any one Gender", Snackbar.LENGTH_SHORT);
-            genderErrMsg.show();
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    private boolean validateVolunteerType() {
-        if (get_category.equalsIgnoreCase("volunteer") && rgrp_volunteer.getCheckedRadioButtonId() == -1) {
-            View rootView = getWindow().getDecorView().getRootView();
-            Snackbar volunteerErrMsg = Snackbar.make(rootView, "Select any one Type", Snackbar.LENGTH_SHORT);
-            volunteerErrMsg.show();
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    private boolean validateMemberCount() {
-        /*
-         * NGO Members or Family Members Count
-         * Empty-NonEmpty Validation
-         * Numeric Validation
-         * */
-
-        String membersCount = editText_ngo_member.getText().toString().trim();
-
-        if ((get_category.equalsIgnoreCase("ngo") || get_category.equalsIgnoreCase("needy")) && TextUtils.isEmpty(membersCount)) {
-            editText_ngo_member.setError("Please Enter Members Count");
-            return false;
-        } else if ((get_category.equalsIgnoreCase("ngo") || get_category.equalsIgnoreCase("needy")) && !membersCount.matches("[0-9]+")) {
-            editText_ngo_member.setError("Numeric Only");
-            return false;
-        } else {
-            return true;
-        }
-
     }
 
     private void createUserAccount() {
@@ -425,8 +342,7 @@ public class SignUpPage3 extends AppCompatActivity {
                         View rootView = getWindow().getDecorView().getRootView();
                         Log.e("onComplete: ", "Registration Successfully");
                         mAuth.signOut();
-                        Snackbar successFullMsg = Snackbar.make(rootView, "Done. Please Verify Email Before Login.", Snackbar.LENGTH_LONG);
-                        successFullMsg.show();
+                        Toast.makeText(SignUpPage3.this, "Done. Please Verify Email Before Login.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignUpPage3.this, Login.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
@@ -442,4 +358,94 @@ public class SignUpPage3 extends AppCompatActivity {
             });
         }
     }
+
+    private boolean validateContact() {
+        /*
+         * Conact Number Validation
+         * Empty - NonEmpty Validation
+         * Contact No Length
+         * Numeric Characters Only
+         * */
+
+        String contact = editText_contact.getText().toString().trim();
+
+        if (TextUtils.isEmpty(contact)) {
+            editText_contact.setError("Enter Contact Number");
+            return false;
+        } else if (contact.length() != 10) {
+            editText_contact.setError("Enter Valid Contact Number");
+            return false;
+        } else if (!contact.matches("[0-9]+")) {
+            editText_contact.setError("Enter Valid Contact Number");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private boolean validateCitySpinner() {
+        /*
+         * City Spinner Validation:
+         * To check whether the Selected Option is Valid or Not
+         * */
+
+        String cityName = spin_signup_third_city.getSelectedItem().toString();
+
+        if (cityName.equalsIgnoreCase("--Select an Option--")) {
+            textView_cityErrorMsg.setVisibility(View.VISIBLE);
+            return false;
+        } else {
+            textView_cityErrorMsg.setVisibility(View.GONE);
+            return true;
+        }
+    }
+
+    private boolean validateGender() {
+        if ((!get_category.equalsIgnoreCase("ngo")) && rgrp_gender.getCheckedRadioButtonId() == -1) {
+            View rootView = getWindow().getDecorView().getRootView();
+            Snackbar genderErrMsg = Snackbar.make(rootView, "Select any one Gender", Snackbar.LENGTH_SHORT);
+            genderErrMsg.show();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private boolean validateVolunteerType() {
+        if (get_category.equalsIgnoreCase("volunteer") && rgrp_volunteer.getCheckedRadioButtonId() == -1) {
+            View rootView = getWindow().getDecorView().getRootView();
+            Snackbar volunteerErrMsg = Snackbar.make(rootView, "Select any one Type", Snackbar.LENGTH_SHORT);
+            volunteerErrMsg.show();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private boolean validateMemberCount() {
+        /*
+         * NGO Members or Family Members Count
+         * Empty-NonEmpty Validation
+         * Numeric Validation
+         * */
+
+        String membersCount = editText_ngo_member.getText().toString().trim();
+
+        if ((get_category.equalsIgnoreCase("ngo") || get_category.equalsIgnoreCase("needy")) && TextUtils.isEmpty(membersCount)) {
+            editText_ngo_member.setError("Please Enter Members Count");
+            return false;
+        } else if ((get_category.equalsIgnoreCase("ngo") || get_category.equalsIgnoreCase("needy")) && !membersCount.matches("[0-9]+")) {
+            editText_ngo_member.setError("Numeric Only");
+            return false;
+        } else {
+            return true;
+        }
+
+    }
 }
+
+/*
+                        // This will Edit....
+                        Snackbar successFullMsg = Snackbar.make(rootView, "Done. Please Verify Email Before Login.", Snackbar.LENGTH_LONG);
+                        successFullMsg.show();
+                         */

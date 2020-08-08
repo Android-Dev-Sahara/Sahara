@@ -29,37 +29,38 @@
                 android:id="@+id/recyclerview_dataitemshow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="80dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="80dp"
                 android:padding="4dp" />
 
 
         </LinearLayout>
     </ScrollView>
+
     <Button
         android:id="@+id/adddonor_btn_donate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/popup_window_rectangle_shape_button"
-        android:text="@string/add_donor_activity_button_donate"
-        android:fontFamily="@font/holtwood_one_sc"
-        android:visibility="invisible"
-        android:layout_marginBottom="10dp"
-        android:onClick="donateButtonClicked"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:textColor="@color/white"/>
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/popup_window_rectangle_shape_button"
+        android:fontFamily="@font/holtwood_one_sc"
+        android:onClick="donateButtonClicked"
+        android:text="@string/add_donor_activity_button_donate"
+        android:textColor="@color/white"
+        android:visibility="invisible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/adddonor_btn_donate"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp"
-        android:layout_above="@+id/adddonor_btn_donate"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="70dp"
         android:clickable="true"
         android:onClick="addItemDonor"
         android:tint="@color/white"

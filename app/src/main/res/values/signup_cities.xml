@@ -4,4 +4,10 @@
         <item>--Select an Option--</item>
         <item>Gandhinagar</item>
     </string-array>
+
+    <string-array name="pickupTime">
+        <item>--Select an Option--</item>
+        <item>9AM - 1PM</item>
+        <item>1PM - 6PM</item>
+    </string-array>
 </resources>
