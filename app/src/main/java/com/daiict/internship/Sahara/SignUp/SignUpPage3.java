@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -50,6 +51,7 @@ public class SignUpPage3 extends AppCompatActivity {
     RadioGroup rgrp_gender, rgrp_volunteer;
     Button btn_signup;
     LinearLayout linearLayout_volunteer_gender, linearLayout_volunteer_type;
+    RelativeLayout relativeLayout_progress;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mReference;
@@ -74,6 +76,7 @@ public class SignUpPage3 extends AppCompatActivity {
         textView_cityErrorMsg = findViewById(R.id.cityErrorMsg);
         rgrp_gender = findViewById(R.id.rgrp_signup_third_gender);
         rgrp_volunteer = findViewById(R.id.rgrp_signup_third_volunteer);
+        relativeLayout_progress = findViewById(R.id.progress_bar_login_rl_create);
 
 
         if (get_category.equalsIgnoreCase("volunteer")) {
@@ -136,6 +139,7 @@ public class SignUpPage3 extends AppCompatActivity {
     }
 
     private void createUserAccount() {
+        relativeLayout_progress.setVisibility(View.VISIBLE);
         // Using Firebase Authentication, We create User Account
         String emailId = SignUpSingle.getInstance().getEmailID();
         String password = SignUpSingle.getInstance().getAccPass();
@@ -150,9 +154,11 @@ public class SignUpPage3 extends AppCompatActivity {
                                 // If Creation of Account is Successfull....
                                 Log.e("onComplete: ", "Account Creation Successfull");
                                 // Send Email Verification
+                                relativeLayout_progress.setVisibility(View.INVISIBLE);
                                 sendEmailVerification();
                             } else {
                                 // If Task is not Successfull
+                                relativeLayout_progress.setVisibility(View.INVISIBLE);
                                 Log.e("onComplete: ", String.valueOf(task.getException()));
                                 btn_signup.setEnabled(true);
                             }
@@ -163,10 +169,12 @@ public class SignUpPage3 extends AppCompatActivity {
                     // Purpose is to fetch the Exception where Account with Given Email is Already Exist
                     if (e.toString().equals("com.google.firebase.auth.FirebaseAuthUserCollisionException: The email address is already in use by another account.")) {
                         View rootView = getWindow().getDecorView().getRootView();
+                        relativeLayout_progress.setVisibility(View.INVISIBLE);
                         Snackbar alredyInUseMsg = Snackbar.make(rootView, "Given Email Already in Use", Snackbar.LENGTH_SHORT);
                         alredyInUseMsg.show();
                         btn_signup.setEnabled(true);
                     } else {
+                        relativeLayout_progress.setVisibility(View.INVISIBLE);
                         Log.e("Authentication Error: ", e.toString() + "");
                         btn_signup.setEnabled(true);
                     }
@@ -187,6 +195,7 @@ public class SignUpPage3 extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
+                        relativeLayout_progress.setVisibility(View.INVISIBLE);
                         Log.e("onComplete: ", "Email Verification Sent!!!");
                         // Now the Final Task is to Register Data
                         registerData();
@@ -195,6 +204,7 @@ public class SignUpPage3 extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    relativeLayout_progress.setVisibility(View.INVISIBLE);
                     Log.e("Verification Error:", e.toString() + "");
                     btn_signup.setEnabled(true);
                 }
@@ -229,6 +239,7 @@ public class SignUpPage3 extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
+                        relativeLayout_progress.setVisibility(View.INVISIBLE);
                         View rootView = getWindow().getDecorView().getRootView();
                         Log.e("onComplete: ", "Registration Successfully");
                         mAuth.signOut();
@@ -243,6 +254,7 @@ public class SignUpPage3 extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    relativeLayout_progress.setVisibility(View.INVISIBLE);
                     Log.e("onFailure: ", "Registration Failed!!" + " " + e.toString());
                     btn_signup.setEnabled(true);
                 }
@@ -268,6 +280,7 @@ public class SignUpPage3 extends AppCompatActivity {
                         View rootView = getWindow().getDecorView().getRootView();
                         Log.e("onComplete: ", "Registration Successfully");
                         mAuth.signOut();
+                        relativeLayout_progress.setVisibility(View.INVISIBLE);
                         Snackbar successFullMsg = Snackbar.make(rootView, "Done. Please Verify Email Before Login.", Snackbar.LENGTH_LONG);
                         successFullMsg.show();
                         Intent intent = new Intent(SignUpPage3.this, Login.class);
@@ -279,6 +292,7 @@ public class SignUpPage3 extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    relativeLayout_progress.setVisibility(View.INVISIBLE);
                     Log.e("onFailure: ", "Registration Failed!!" + " " + e.toString());
                     btn_signup.setEnabled(true);
                 }
@@ -302,6 +316,7 @@ public class SignUpPage3 extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
+                        relativeLayout_progress.setVisibility(View.INVISIBLE);
                         View rootView = getWindow().getDecorView().getRootView();
                         Log.e("onComplete: ", "Registration Successfully");
                         mAuth.signOut();
@@ -317,6 +332,7 @@ public class SignUpPage3 extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    relativeLayout_progress.setVisibility(View.INVISIBLE);
                     Log.e("onFailure: ", "Registration Failed!!" + " " + e.toString());
                     btn_signup.setEnabled(true);
                 }
@@ -340,6 +356,7 @@ public class SignUpPage3 extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
+                        relativeLayout_progress.setVisibility(View.INVISIBLE);
                         View rootView = getWindow().getDecorView().getRootView();
                         Log.e("onComplete: ", "Registration Successfully");
                         mAuth.signOut();
@@ -354,6 +371,7 @@ public class SignUpPage3 extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    relativeLayout_progress.setVisibility(View.INVISIBLE);
                     Log.e("onFailure: ", "Registration Failed!!" + " " + e.toString());
                     btn_signup.setEnabled(true);
                 }
