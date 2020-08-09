@@ -156,5 +156,17 @@
     <string name="setting_popup_window_btn_reject">Cancel</string>
     <string name="setting_popup_window_btn_confirm">Logout</string>
 
+    <!--Settings Report A Problem-->
+    <string name="setting_report_prob_title">Report</string>
+    <string name="setting_report_prob_hint_email">Email</string>
+    <string name="setting_report_prob_hint_message">Your Message</string>
+    <string name="setting_report_prob_btn_submit">Submit</string>
+
+    <!--Settings Feedback-->
+    <string name="setting_feedback_title">Feedback</string>
+    <string name="setting_feedback_hint_email">Email</string>
+    <string name="setting_feedback_hint_message">Your Message</string>
+    <string name="setting_feedback_btn_submit">Submit</string>
+
 
 </resources>

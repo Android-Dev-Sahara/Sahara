@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Login.CovidInfoActivity"></activity>
-        <activity android:name=".UserDashboard.ProfileSettingsFeedback"></activity>
+        <activity android:name=".Login.CovidInfoActivity"/>
+        <activity android:name=".UserDashboard.ProfileSettingsFeedback"/>
         <activity android:name=".UserDashboard.ProfileSettingsReportProblem" />
         <activity android:name=".UserDashboard.ProfileEditProfileActivity" />
         <activity android:name=".UserDashboard.ProfileSettingsAcitivity" />
