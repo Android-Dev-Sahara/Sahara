@@ -307,6 +307,7 @@ public class SignUpPage3 extends AppCompatActivity {
                         mAuth.signOut();
                         Snackbar successFullMsg = Snackbar.make(rootView, "Done. Please Verify Email Before Login.", Snackbar.LENGTH_LONG);
                         successFullMsg.show();
+
                         Intent intent = new Intent(SignUpPage3.this, Login.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
@@ -343,6 +344,7 @@ public class SignUpPage3 extends AppCompatActivity {
                         Log.e("onComplete: ", "Registration Successfully");
                         mAuth.signOut();
                         Toast.makeText(SignUpPage3.this, "Done. Please Verify Email Before Login.", Toast.LENGTH_SHORT).show();
+
                         Intent intent = new Intent(SignUpPage3.this, Login.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);

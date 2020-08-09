@@ -10,6 +10,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
 import com.daiict.internship.Sahara.R;
@@ -34,6 +35,7 @@ public class Login extends AppCompatActivity {
 
     TextInputEditText edt_email, edt_pass;
     Button btnlogin;
+    RelativeLayout relativeLayout_progress;
 
     private FirebaseAuth mAuth;
     DatabaseReference ref;
@@ -49,6 +51,7 @@ public class Login extends AppCompatActivity {
         edt_pass = findViewById(R.id.login_edit_password);
 
         btnlogin = findViewById(R.id.login_btn_login);
+        relativeLayout_progress = findViewById(R.id.progress_bar_login_rl);
 
         mAuth = FirebaseAuth.getInstance();
         ref = FirebaseDatabase.getInstance().getReference();
@@ -74,6 +77,7 @@ public class Login extends AppCompatActivity {
             Log.e("btnLoginOnClick: ", "Email and Password");
             String emailID = edt_email.getText().toString().trim();
             String password = edt_pass.getText().toString();
+            relativeLayout_progress.setVisibility(View.VISIBLE);
 
             mAuth.signInWithEmailAndPassword(emailID, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -87,12 +91,14 @@ public class Login extends AppCompatActivity {
                             if (Objects.requireNonNull(mAuth.getCurrentUser()).isEmailVerified()) {
                                 Log.e("btnLoginOnClick: ", "Login Successfull");
                                 // Intent to Loading Activity
+                                relativeLayout_progress.setVisibility(View.INVISIBLE);
                                 Intent intent = new Intent(Login.this, CovidInfoActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else {
                                 View rootView = getWindow().getDecorView().getRootView();
                                 Log.e("btnLoginOnClick: ", "Email is Not Verified");
+                                relativeLayout_progress.setVisibility(View.INVISIBLE);
                                 Snackbar verifyEmailMsg = Snackbar.make(rootView, "Please Verify your Email Address First!", Snackbar.LENGTH_LONG);
                                 verifyEmailMsg.show();
                                 mAuth.signOut();
@@ -102,6 +108,7 @@ public class Login extends AppCompatActivity {
 
                     } else {
                         Log.e("btnLoginOnClick: ", "Authentication Failed!!!");
+                        relativeLayout_progress.setVisibility(View.INVISIBLE);
                         View rootView = getWindow().getDecorView().getRootView();
                         Snackbar authenticationFailed = Snackbar.make(rootView, "Authentication Failed", Snackbar.LENGTH_SHORT);
                         authenticationFailed.show();
