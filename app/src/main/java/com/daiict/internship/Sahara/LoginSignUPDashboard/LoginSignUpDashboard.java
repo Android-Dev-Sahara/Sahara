@@ -71,4 +71,10 @@ public class LoginSignUpDashboard extends AppCompatActivity {
         Intent intent = new Intent(LoginSignUpDashboard.this, AppWorkDetails.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

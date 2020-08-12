@@ -13,6 +13,8 @@ import android.widget.CheckBox;
 import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
 import com.daiict.internship.Sahara.R;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileSettingsAcitivity extends AppCompatActivity {
 
@@ -80,9 +82,14 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                // Firebase Authentication Code
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                mAuth.signOut();
                 Intent intent = new Intent(getApplicationContext(), LoginSignUpDashboard.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finishAffinity();
+
                Snackbar.make(v, "You have been Logged out from the application ", Snackbar.LENGTH_LONG).show();
                if(remember)
                {
@@ -103,9 +110,6 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-
-
-
 
     }
 }
