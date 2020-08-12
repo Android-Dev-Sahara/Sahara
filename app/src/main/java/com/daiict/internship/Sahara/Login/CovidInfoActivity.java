@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.daiict.internship.Sahara.R;
+import com.daiict.internship.Sahara.SignUp.SignUpSingle;
 import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -50,6 +51,7 @@ public class CovidInfoActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in NGO and Verification is Updated");
+                                SignUpSingle.getInstance().setActor("NGO");       // Singleton Usage
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -74,6 +76,7 @@ public class CovidInfoActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Donor and Verification is Updated");
+                                SignUpSingle.getInstance().setActor("Donor");       // Singleton Usage
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -98,6 +101,7 @@ public class CovidInfoActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Needy and Verification is Updated");
+                                SignUpSingle.getInstance().setActor("Needy");       // Singleton Usage
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -122,6 +126,7 @@ public class CovidInfoActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Volunteer and Verification is Updated");
+                                SignUpSingle.getInstance().setActor("Volunteer");       // Singleton Usage
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
