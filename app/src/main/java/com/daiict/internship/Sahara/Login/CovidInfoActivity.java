@@ -69,7 +69,7 @@ public class CovidInfoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    mRef.child("NGO").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mRef.child("Donor").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
@@ -93,7 +93,7 @@ public class CovidInfoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    mRef.child("NGO").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mRef.child("Needy").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
@@ -117,7 +117,7 @@ public class CovidInfoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    mRef.child("NGO").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mRef.child("Volunteer").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
