@@ -8,16 +8,37 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 
+import com.daiict.internship.Sahara.Login.CovidInfoActivity;
 import com.daiict.internship.Sahara.Login.Login;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SelectionCategory;
+import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginSignUpDashboard extends AppCompatActivity {
+
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_sign_up_dashboard);
+        mAuth = FirebaseAuth.getInstance();
+
+        checkUserAlreadySignInOrNot();
+    }
+
+    private void checkUserAlreadySignInOrNot() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            // User is Already Logged In
+            Intent intent = new Intent(LoginSignUpDashboard.this, BottomNavigationUsers.class);
+            intent.putExtra("Fragment","homefragment");
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void dashboardSignUp(View view)
