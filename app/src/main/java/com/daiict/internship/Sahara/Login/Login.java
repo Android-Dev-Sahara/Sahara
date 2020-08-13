@@ -43,8 +43,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
           mAuth = FirebaseAuth.getInstance();
-//        get_category = SignUpSingle.getInstance().getActor();
-////        Log.d("category",get_category);
+        get_category = SignUpSingle.getInstance().getActor();
+//        Log.d("category",get_category);
 //        if(get_category.equalsIgnoreCase("volunteer")){
 //            ref= FirebaseDatabase.getInstance().getReference("Volunteer");
 //        }
@@ -81,6 +81,7 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(Login.this, BottomNavigationUsers.class);
         intent.putExtra("Fragment","homefragment");
         startActivity(intent);
+
 
 //        email=findViewById(R.id.login_edit_username);
 //        pass=findViewById(R.id.login_edit_password);
