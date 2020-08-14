@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.daiict.internship.Sahara.DataOperation.SharedPrefManager;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SignUpSingle;
 import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
@@ -40,6 +41,7 @@ public class CovidInfoActivity extends AppCompatActivity {
             userId = currentUser.getUid();
         }
 
+        SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userID, userId);
         Log.e("onCreate: ", userId);
 
         mRef.child("NGO").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -52,6 +54,9 @@ public class CovidInfoActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in NGO and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("NGO");       // Singleton Usage
+
+                                // Store in Shared Pref
+                                SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "NGO");
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -77,6 +82,9 @@ public class CovidInfoActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Donor and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("Donor");       // Singleton Usage
+
+                                // Store the Data in Shared Preferences
+                                SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Donor");
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -102,6 +110,7 @@ public class CovidInfoActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Needy and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("Needy");       // Singleton Usage
+                                SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Needy");
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -127,6 +136,7 @@ public class CovidInfoActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Volunteer and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("Volunteer");       // Singleton Usage
+                                SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Volunteer");
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -144,6 +154,7 @@ public class CovidInfoActivity extends AppCompatActivity {
     }
 
     private void changeActivity() {
+        SharedPrefManager.setBooleanPrefVal(CovidInfoActivity.this, "isLoginOperSuccess", true);
         Intent intent = new Intent(CovidInfoActivity.this, BottomNavigationUsers.class);
         intent.putExtra("Fragment","homefragment");
         startActivity(intent);
