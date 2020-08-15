@@ -154,4 +154,12 @@ public class BottomNavigationUsers extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //On Back Press from this Activity the user should go back to the Apps Section of Phone
+        //finishAffinity closes the Activity and clears the back stack;
+        finishAffinity();
+    }
 }

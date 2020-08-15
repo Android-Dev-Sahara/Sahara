@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 
+import com.daiict.internship.Sahara.DataOperation.SharedPrefManager;
 import com.daiict.internship.Sahara.Login.CovidInfoActivity;
 import com.daiict.internship.Sahara.Login.Login;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SelectionCategory;
+import com.daiict.internship.Sahara.SignUp.SignUpSingle;
 import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,9 +33,15 @@ public class LoginSignUpDashboard extends AppCompatActivity {
     }
 
     private void checkUserAlreadySignInOrNot() {
+        boolean isLoginSuccess = SharedPrefManager.getBooleanPrefVal(LoginSignUpDashboard.this, "isLoginOperSuccess");
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if (currentUser != null) {
+        if (isLoginSuccess && currentUser != null) {
+            // Set Singleton data
+            String userRole = SharedPrefManager.getPrefVal(LoginSignUpDashboard.this, SharedPrefManager.userRole);
+            SignUpSingle.getInstance().setActor(userRole);
+            Log.e("TAG", "checkUserAlreadySignInOrNot: " + SignUpSingle.getInstance().getActor());
+
             // User is Already Logged In
             Intent intent = new Intent(LoginSignUpDashboard.this, BottomNavigationUsers.class);
             intent.putExtra("Fragment","homefragment");
@@ -62,6 +71,7 @@ public class LoginSignUpDashboard extends AppCompatActivity {
         else
         {
             startActivity(intent);
+            finish();
         }
 
     }
@@ -70,5 +80,11 @@ public class LoginSignUpDashboard extends AppCompatActivity {
     {
         Intent intent = new Intent(LoginSignUpDashboard.this, AppWorkDetails.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
