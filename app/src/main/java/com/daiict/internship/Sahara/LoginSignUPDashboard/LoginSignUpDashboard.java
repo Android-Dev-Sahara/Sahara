@@ -29,7 +29,7 @@ public class LoginSignUpDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_login_sign_up_dashboard);
         mAuth = FirebaseAuth.getInstance();
 
-        checkUserAlreadySignInOrNot();
+        //checkUserAlreadySignInOrNot();
     }
 
     private void checkUserAlreadySignInOrNot() {
