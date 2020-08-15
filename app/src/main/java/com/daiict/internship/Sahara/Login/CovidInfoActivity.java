@@ -157,6 +157,7 @@ public class CovidInfoActivity extends AppCompatActivity {
         SharedPrefManager.setBooleanPrefVal(CovidInfoActivity.this, "isLoginOperSuccess", true);
         Intent intent = new Intent(CovidInfoActivity.this, BottomNavigationUsers.class);
         intent.putExtra("Fragment","homefragment");
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
     }

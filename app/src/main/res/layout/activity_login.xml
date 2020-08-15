@@ -9,6 +9,10 @@
     android:transitionName="btn_login_transition"
     tools:context=".Login.Login">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -104,21 +108,7 @@
             android:textAllCaps="true"
             android:textStyle="bold" />
 
-        <RelativeLayout
-            android:id="@+id/progress_bar_login_rl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="20dp"
-            android:background="@drawable/progressbar_back"
-            android:elevation="8dp"
-            android:visibility="gone"
-            android:gravity="center">
 
-            <ProgressBar
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
-        </RelativeLayout>
         <Button
             android:id="@+id/login_btn_login"
             android:layout_width="match_parent"
@@ -136,7 +126,7 @@
             android:layout_height="wrap_content"
             android:onClick="loginCreateAccount"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:background="@color/transparent"
             android:text="@string/login_button_create"
             android:textAllCaps="true"
@@ -144,6 +134,36 @@
 
 
     </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/progress_bar_login_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="20dp"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/progressbar_back"
+            android:elevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <ProgressBar
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loading_progress_bar"
+                android:fontFamily="@font/muli_black"
+                android:layout_marginStart="20dp"
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
 
 
 </ScrollView>

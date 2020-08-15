@@ -168,5 +168,8 @@
     <string name="setting_feedback_hint_message">Your Message</string>
     <string name="setting_feedback_btn_submit">Submit</string>
 
+    <!--Loading Progress-->
+    <string name="loading_progress_bar">Loading... </string>
+
 
 </resources>
