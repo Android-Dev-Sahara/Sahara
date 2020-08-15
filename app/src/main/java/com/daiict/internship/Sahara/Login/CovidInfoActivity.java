@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.daiict.internship.Sahara.DataOperation.SharedPrefManager;
 import com.daiict.internship.Sahara.R;
+import com.daiict.internship.Sahara.SignUp.SignUpSingle;
 import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -39,6 +41,7 @@ public class CovidInfoActivity extends AppCompatActivity {
             userId = currentUser.getUid();
         }
 
+        SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userID, userId);
         Log.e("onCreate: ", userId);
 
         mRef.child("NGO").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -50,6 +53,10 @@ public class CovidInfoActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in NGO and Verification is Updated");
+                                SignUpSingle.getInstance().setActor("NGO");       // Singleton Usage
+
+                                // Store in Shared Pref
+                                SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "NGO");
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -69,11 +76,15 @@ public class CovidInfoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    mRef.child("NGO").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mRef.child("Donor").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Donor and Verification is Updated");
+                                SignUpSingle.getInstance().setActor("Donor");       // Singleton Usage
+
+                                // Store the Data in Shared Preferences
+                                SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Donor");
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -93,11 +104,13 @@ public class CovidInfoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    mRef.child("NGO").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mRef.child("Needy").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Needy and Verification is Updated");
+                                SignUpSingle.getInstance().setActor("Needy");       // Singleton Usage
+                                SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Needy");
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -117,11 +130,13 @@ public class CovidInfoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    mRef.child("NGO").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mRef.child("Volunteer").child(userId).child("userIsVerified").setValue("Yes").addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Volunteer and Verification is Updated");
+                                SignUpSingle.getInstance().setActor("Volunteer");       // Singleton Usage
+                                SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Volunteer");
                                 changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
@@ -139,6 +154,7 @@ public class CovidInfoActivity extends AppCompatActivity {
     }
 
     private void changeActivity() {
+        SharedPrefManager.setBooleanPrefVal(CovidInfoActivity.this, "isLoginOperSuccess", true);
         Intent intent = new Intent(CovidInfoActivity.this, BottomNavigationUsers.class);
         intent.putExtra("Fragment","homefragment");
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
