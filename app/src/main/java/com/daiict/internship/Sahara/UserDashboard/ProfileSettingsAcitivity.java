@@ -87,7 +87,6 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
                if(remember)
                {
                    //Code to Store the values in sharedPreference
-                   //Remember to empty the shared preference so that user cant relogin
                }
                else
                {

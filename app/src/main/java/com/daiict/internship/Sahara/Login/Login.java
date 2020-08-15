@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.daiict.internship.Sahara.DataOperation.SharedPrefManager;
 import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SelectionCategory;
@@ -72,12 +73,16 @@ public class Login extends AppCompatActivity {
 
     public void btnLoginOnClick(View view) {
         if (validateEmailAddress() && validatePassword()) {
+            edt_email.setEnabled(false);
+            edt_pass.setEnabled(false);
             btnlogin.setEnabled(false);
             // Progress Dialog Here......
+            relativeLayout_progress.setVisibility(View.VISIBLE);
+
             Log.e("btnLoginOnClick: ", "Email and Password");
             String emailID = edt_email.getText().toString().trim();
             String password = edt_pass.getText().toString();
-            relativeLayout_progress.setVisibility(View.VISIBLE);
+
 
             mAuth.signInWithEmailAndPassword(emailID, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -90,16 +95,20 @@ public class Login extends AppCompatActivity {
                         if (userId != null) {
                             if (Objects.requireNonNull(mAuth.getCurrentUser()).isEmailVerified()) {
                                 Log.e("btnLoginOnClick: ", "Login Successfull");
+                                // Setting Shared Pref Value
+                                SharedPrefManager.setBooleanPrefVal(Login.this, "isLoginOperSuccess", false);
                                 // Intent to Loading Activity
-                                relativeLayout_progress.setVisibility(View.INVISIBLE);
+                                relativeLayout_progress.setVisibility(View.GONE);
                                 Intent intent = new Intent(Login.this, CovidInfoActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                                 finish();
                             } else {
+                                edt_email.setEnabled(true);
+                                edt_pass.setEnabled(true);
                                 View rootView = getWindow().getDecorView().getRootView();
                                 Log.e("btnLoginOnClick: ", "Email is Not Verified");
-                                relativeLayout_progress.setVisibility(View.INVISIBLE);
+                                relativeLayout_progress.setVisibility(View.GONE);
                                 Snackbar verifyEmailMsg = Snackbar.make(rootView, "Please Verify your Email Address First!", Snackbar.LENGTH_LONG);
                                 verifyEmailMsg.show();
                                 mAuth.signOut();
@@ -108,8 +117,10 @@ public class Login extends AppCompatActivity {
                         }
 
                     } else {
+                        edt_email.setEnabled(true);
+                        edt_pass.setEnabled(true);
                         Log.e("btnLoginOnClick: ", "Authentication Failed!!!");
-                        relativeLayout_progress.setVisibility(View.INVISIBLE);
+                        relativeLayout_progress.setVisibility(View.GONE);
                         View rootView = getWindow().getDecorView().getRootView();
                         Snackbar authenticationFailed = Snackbar.make(rootView, "Authentication Failed", Snackbar.LENGTH_SHORT);
                         authenticationFailed.show();
@@ -120,72 +131,6 @@ public class Login extends AppCompatActivity {
         }
     }
 
-    private String fetchUserCategory(final String userId) {
-
-        final String[] result = new String[1];
-
-        ref.child("Needy").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    Log.e("User Role", "onDataChange: " + userId + " is available in Needy");
-                    result[0] = "Needy";
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        ref.child("NGO").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    Log.e("User Role", "onDataChange: " + userId + " is available in NGO");
-                    result[0] = "NGO";
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        ref.child("Volunteer").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    Log.e("User Role", "onDataChange: " + userId + " is available in Volunteer");
-                    result[0] = "Volunteer";
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        ref.child("Donor").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    Log.e("User Role", "onDataChange: " + userId + " is available in Donor");
-                    result[0] = "Donor";
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        return result[0];
-    }
 
     public void loginCreateAccount(View view) {
         Intent intent = new Intent(Login.this, SelectionCategory.class);
@@ -221,9 +166,3 @@ public class Login extends AppCompatActivity {
         }
     }
 }
-
-/*
-
-
-
-         */

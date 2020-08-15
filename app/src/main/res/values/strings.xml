@@ -132,7 +132,7 @@
     <string name="setting_activity_tv_title_account">Account</string>
     <string name="setting_activity_tv_title_support">Support</string>
     <string name="setting_activity_tv_title_about">About</string>
-    <string name="setting_activity_tv_title_login">Login</string>
+    <string name="setting_activity_tv_title_login">Authentication</string>
     <string name="setting_activity_tv_pass">Change Password</string>
     <string name="setting_activity_tv_general_set">General Settings</string>
     <string name="setting_activity_tv_contact">Contact Us</string>
