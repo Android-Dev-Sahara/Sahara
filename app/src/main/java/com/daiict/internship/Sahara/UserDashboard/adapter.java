@@ -40,7 +40,6 @@ public class adapter extends RecyclerView.Adapter<adapter.MyViewHolder> {
         holder.weight.setText(Float.toString(item.getWeight()));
         holder.spoilage.setText(Boolean .toString(item.isSpoilage()));
 
-
     }
 
 
