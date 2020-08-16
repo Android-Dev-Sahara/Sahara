@@ -167,6 +167,21 @@
     <string name="setting_feedback_hint_email">Email</string>
     <string name="setting_feedback_hint_message">Your Message</string>
     <string name="setting_feedback_btn_submit">Submit</string>
+    <string name="forget_password">Forget Passord</string>
+    <string name="forget_password_detail">Povide Your Account\'s Email For Which You Want To Reset Your Password!</string>
+    <string name="enter_email">Email</string>
+    <string name="next_btn">NEXT</string>
+    <string name="make_selection_details">Select which contact details should we use to reset your password?</string>
+    <string name="make_selection">Make Selection</string>
+    <string name="via_sms">via sms :</string>
+    <string name="via_mail">via mail :</string>
+    <string name="otp_code_text">Co\nde</string>
+    <string name="otp_verification_text">Verification</string>
+    <string name="otp_description_text">Enter one Time Password sent on\n+91 9898423658</string>
+    <string name="new_credentials">New\nCredentials</string>
+    <string name="new_credentials_details">Your Identity has been verified!\nSet Your New Password</string>
+    <string name="password_updated">Password\nUpdated</string>
+    <string name="password_updated_success_message">Your password has been updated!</string>
 
 
 </resources>
