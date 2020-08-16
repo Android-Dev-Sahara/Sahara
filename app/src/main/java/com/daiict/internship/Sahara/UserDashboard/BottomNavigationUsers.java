@@ -36,6 +36,8 @@ public class BottomNavigationUsers extends AppCompatActivity {
         if (intent != null)
             fragmentName = intent.getStringExtra("Fragment");
 
+        //Need to create the Object to get the Instance of type of user he/she is
+
 
         //Assigned The Hooks
         relativeLayout_api23 = findViewById(R.id.bottom_nav_users_containers);
@@ -43,6 +45,7 @@ public class BottomNavigationUsers extends AppCompatActivity {
 
         //IF The API level is greater then 23 that is marshmallow then chip navigation is called else the default navigation is called
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
             relativeLayout_api23.setVisibility(View.VISIBLE);
             //The Default Home Fragment is called rest will be maintained by the method
             if (fragmentName.equalsIgnoreCase("Homefragment"))
