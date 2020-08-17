@@ -16,14 +16,12 @@ import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
 import com.daiict.internship.Sahara.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileSettingsAcitivity extends AppCompatActivity {
 
     private String fragmentName;
     private static final String LOGOUTCREDENTIAL = "logoutCredentials";
     FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +80,7 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
             Log.e("TAG", "logoutButtonPressed: Dialog Shown");
             AlertDialog.Builder Builder = new AlertDialog.Builder(ProfileSettingsAcitivity.this);
             View view_pop = getLayoutInflater().inflate(R.layout.pop_window_settings_logout, null);
-            final Button confirm ,cancel;
+            final Button confirm, cancel;
             //hooks
             confirm = view_pop.findViewById(R.id.settings_pop_btn_confirm_logout);
             cancel = view_pop.findViewById(R.id.settings_pop_btn_reject_logout);
@@ -90,7 +88,7 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
 
             //setting the view
             Builder.setView(view_pop);
-            final Dialog dialog  = Builder.create();
+            final Dialog dialog = Builder.create();
             dialog.show();
             confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -101,16 +99,13 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
                     mAuth.signOut();
                     Snackbar.make(v, "You have been Logged out from the application ", Snackbar.LENGTH_LONG).show();
 
-                    if(remember)
-                    {
+                    if (remember) {
                         //Code to Store the values in sharedPreference
                         SharedPrefManager.setBooleanPrefVal(ProfileSettingsAcitivity.this, LOGOUTCREDENTIAL, true);
-                        Log.e("TAG", "onClick: Remember Checked" );
-                    }
-                    else
-                    {
+                        Log.e("TAG", "onClick: Remember Checked");
+                    } else {
                         SharedPrefManager.setBooleanPrefVal(ProfileSettingsAcitivity.this, LOGOUTCREDENTIAL, false);
-                        Log.e("TAG", "onClick: Remember Not Checked" );
+                        Log.e("TAG", "onClick: Remember Not Checked");
                     }
 
                     moveToLoginSignUpDashBoard();
@@ -123,11 +118,12 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
                     dialog.dismiss();
                 }
             });
+
+
         }
     }
-
     private void moveToLoginSignUpDashBoard() {
-        Intent intent = new Intent(getApplicationContext(), LoginSignUpDashboard.class);
+        Intent intent = new Intent(this, LoginSignUpDashboard.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finishAffinity();

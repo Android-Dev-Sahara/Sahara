@@ -100,6 +100,7 @@ public class Login extends AppCompatActivity {
                                 // Intent to Loading Activity
                                 relativeLayout_progress.setVisibility(View.GONE);
                                 Intent intent = new Intent(Login.this, CovidInfoActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                                 finish();
                             } else {
@@ -165,3 +166,4 @@ public class Login extends AppCompatActivity {
         }
     }
 }
+
