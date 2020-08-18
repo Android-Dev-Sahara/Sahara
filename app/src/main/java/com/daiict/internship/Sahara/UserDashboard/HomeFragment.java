@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,21 +24,30 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view= inflater.inflate(R.layout.fragment_home, container, false);
-        RecyclerView recyclerView=view.findViewById(R.id.recycleView);
+        RecyclerView recyclerView=view.findViewById(R.id.home_recyclerview);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
-        ArrayList<DonationClass> list=new ArrayList<>();
-        list.add(new DonationClass("Reliance chockdi","20"));
-        list.add(new DonationClass("Vijaynagar","5"));
-        list.add(new DonationClass("Paldi","30"));
-        list.add(new DonationClass("Paldi","30"));
-        list.add(new DonationClass("Paldi","30"));
-        list.add(new DonationClass("Paldi","30"));
-        list.add(new DonationClass("Paldi","30"));
+        ArrayList<HomeDataFetchClass> list=new ArrayList<HomeDataFetchClass>();
+        list.add(new HomeDataFetchClass("Hello World NGO","12:00 Hrs","12-12-2020","Gandhinagar","Infocity"));
+        list.add(new HomeDataFetchClass("Hello World NGO","12:00 Hrs","12-12-2020","Gandhinagar","Infocity"));
+        list.add(new HomeDataFetchClass("Hello World NGO","12:00 Hrs","12-12-2020","Gandhinagar","Infocity"));
+        list.add(new HomeDataFetchClass("Hello World NGO","12:00 Hrs","12-12-2020","Gandhinagar","Infocity"));
+        list.add(new HomeDataFetchClass("Hello World NGO","12:00 Hrs","12-12-2020","Gandhinagar","Infocity"));
 
-        donationAdapter dAdapter=new donationAdapter(this.getActivity(),list);
-        recyclerView.setAdapter(dAdapter);
+        final CardViewLikeShareAdapter adpater=new CardViewLikeShareAdapter(this.getActivity(),list);
+        recyclerView.setAdapter(adpater);
+
+        SwipeRefreshLayout swipeRefreshLayout = view.findViewById(R.id.home_swiper);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //Add the code to update the data from database
+
+                adpater.notifyDataSetChanged();
+            }
+        });
+
 
         return view;
     }

@@ -3,32 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/bottom_nav_home"
+        android:id="@+id/bottom_nav_needy_home"
         android:icon="@drawable/bottom_nav_home"
         android:title="Home"
         app:cnb_backgroundColor="@color/lightwhite"
         app:cnb_iconColor="@color/black" />
-
     <item
-        android:id="@+id/bottom_nav_add"
-        android:icon="@drawable/bottom_nav_add"
-        android:title="Add"
+        android:id="@+id/bottom_nav_needy_request"
+        android:icon="@drawable/menu_req_food_needy"
+        android:title="Request Food"
         app:cnb_backgroundColor="@color/lightwhite"
         app:cnb_iconColor="@color/black"/>
 
     <item
-        android:id="@+id/bottom_nav_notification"
+        android:id="@+id/bottom_nav_needy_notification"
         android:icon="@drawable/bottom_nav_notification"
         android:title="Notifications"
         app:cnb_backgroundColor="@color/lightwhite"
         app:cnb_iconColor="@color/black"/>
 
     <item
-        android:id="@+id/bottom_nav_profile"
+        android:id="@+id/bottom_nav_needy_profile"
         android:icon="@drawable/bottom_nav_profile"
         android:title="Profile"
         app:cnb_backgroundColor="@color/lightwhite"
         app:cnb_iconColor="@color/black"/>
-
-
 </menu>

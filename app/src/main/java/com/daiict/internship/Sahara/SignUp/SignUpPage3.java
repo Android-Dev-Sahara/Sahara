@@ -187,6 +187,7 @@ public class SignUpPage3 extends AppCompatActivity {
     }
 
     private void sendEmailVerification() {
+        relativeLayout_progress.setVisibility(View.VISIBLE);
         // Get Current User From Firebase Authentication...
         FirebaseUser mUser = mAuth.getCurrentUser();
 
