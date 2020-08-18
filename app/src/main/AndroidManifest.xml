@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login.ForgetPasswordSuccessMessage"></activity>
+        <activity android:name=".Login.ForgetPasswordSuccessMessage" />
         <activity android:name=".Login.SetNewPassword" />
         <activity android:name=".Login.VerifyOTP" />
         <activity android:name=".Login.SelectForgotPassMethod" />

@@ -21,7 +21,6 @@
             android:layout_margin="3dp"
             android:background="@drawable/roundingup_corners_botom_nav"
             android:elevation="15dp"
-            app:cnb_menuResource="@menu/bottom_navigation_menu_bar"
             app:cnb_orientationMode="horizontal"
             app:cnb_radius="8dp"
             app:cnb_unselectedColor="@color/black" />
@@ -48,7 +47,7 @@
             app:itemBackground="@color/colorPrimary"
             app:itemIconTint="@drawable/bottom_nav_users_color_lessapi"
             app:itemTextColor="@drawable/bottom_nav_users_color_lessapi"
-            app:menu="@menu/bottom_navigation_menu_bar" />
+            app:menu="@menu/bottom_nav_donor_menubar" />
 
     </RelativeLayout>
 

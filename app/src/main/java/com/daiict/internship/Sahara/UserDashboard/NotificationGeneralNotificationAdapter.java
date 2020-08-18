@@ -35,8 +35,8 @@ public class NotificationGeneralNotificationAdapter extends RecyclerView.Adapter
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         GeneralNotificationClass object = list.get(position);
         holder.textView_notify.setText(object.getText_data_notification());
-        holder.textView_date.setText(object.getDate().toString());
-        holder.textView_time.setText(object.getTime().toString());
+        holder.textView_date.setText(object.getDate());
+        holder.textView_time.setText(object.getTime());
     }
 
     @Override
