@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
-    ImageView next_btn_for_donation_service;
+
     Button btn;
 
     @Override
@@ -38,14 +38,14 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
-        next_btn_for_donation_service=view.findViewById(R.id.display_servicable_donation);
+        ImageView next_btn_for_donation_service=view.findViewById(R.id.display_servicable_donation);
 
         next_btn_for_donation_service.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   Log.e("click", "clicked");
-                   Intent intent = new Intent(getActivity(), donation_common_activity.class);
-                   startActivity(intent);
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),ProfileSettingsAcitivity.class);
+                intent.putExtra("Fragment", "profilefragment");
+                startActivity(intent);
             }
         });
 
