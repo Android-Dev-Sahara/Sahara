@@ -11,10 +11,10 @@
     <string name="slider_heading_volunteer">Volunteer</string>
 
     <!-- The Detail Description Value in intro Slider -->
-    <string name="slider_desc_needy">Needy is the person who has to ask for the data</string>
-    <string name="slider_desc_ngo">NGO is the people who has to ask for the food that has to be delivered</string>
-    <string name="slider_desc_donar">Donar is the person who donates everything to the needy</string>
-    <string name="slider_desc_volunteer">Volunteer is the person who to the needy by self going or by giving up the foods to the needy</string>
+    <string name="slider_desc_needy">Dare to reach out your hand into the darkness, to pull another hand into the light.</string>
+    <string name="slider_desc_ngo">Service to others is the rent you pay for your room here on earth.</string>
+    <string name="slider_desc_donar">Remember that there is no happiness in having or in getting, but only in giving.</string>
+    <string name="slider_desc_volunteer">We don’t get paid, not because we’re worthless, but because we’re priceless.</string>
 
     <!--Login Sign UP Dashboard-->
     <string name="loginsignup_dashboard_covid">Covid 19\nMaintain  Social Distance </string>
@@ -185,6 +185,18 @@
 
     <!--Loading Progress-->
     <string name="loading_progress_bar">Loading... </string>
+    <string name="contact_us">Get In Touch?</string>
+    <string name="contact_us_description">Want to get in touch? We\'d love to hear from you.\nHere\'s how you can reach us.</string>
+    <string name="email_us">Email Us</string>
+    <string name="vision">Our Vision</string>
+    <string name="vision_description">Make People Hunger Free</string>
+    <string name="who_we_are">Who We Are</string>
+    <string name="emergency_description">We also respond with emergency food and relief during disaster like Covid-19.</string>
+    <string name="geography_description">Deliever a food on time and fresh is our responsibility.</string>
+    <string name="the_drivers">"The driver of our mission "</string>
+    <string name="ngo_description">NGO Helps us to manage a delivery.</string>
+    <string name="volunteer_description">Volunteer(aka Hunger Hero) is the backbone of our system.</string>
+    <string name="needy_description">Feed Us We are Hungry</string>
 
 
 </resources>

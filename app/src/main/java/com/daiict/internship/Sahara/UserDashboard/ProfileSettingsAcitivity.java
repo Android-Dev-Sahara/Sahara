@@ -46,7 +46,8 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
     }
 
     public void contactUsButtonPressed(View view) {
-
+        Intent intent = new Intent(this, ProfileSettingContactUs.class);
+        startActivity(intent);
     }
 
     public void reportProblemButtonPressed(View view) {
@@ -66,7 +67,8 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
     }
 
     public void aboutSaharaButtonPressed(View view) {
-
+        Intent intent = new Intent(this, AboutUsActivity.class);
+        startActivity(intent);
     }
 
     public void logoutButtonPressed(View view) {

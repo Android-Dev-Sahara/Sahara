@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserDashboard.donation_common_activity"></activity>
+        <activity android:name=".UserDashboard.AboutUsActivity"></activity>
+        <activity android:name=".UserDashboard.ProfileSettingContactUs" />
+        <activity android:name=".UserDashboard.donation_common_activity" />
         <activity android:name=".Login.ForgetPasswordSuccessMessage" />
         <activity android:name=".Login.SetNewPassword" />
         <activity android:name=".Login.VerifyOTP" />
