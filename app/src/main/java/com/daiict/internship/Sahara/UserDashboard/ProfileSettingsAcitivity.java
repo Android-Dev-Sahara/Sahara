@@ -39,13 +39,20 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
 
     public void passwordChangeButtonPressed(View view) {
         Snackbar.make(view, "A reset Link has been sent to your registered email id ", Snackbar.LENGTH_LONG).show();
+        //Kindly share the password change link
     }
 
     public void generalSettingButtonPressed(View view) {
+        //Pending To-Do
+
 
     }
 
     public void contactUsButtonPressed(View view) {
+        Intent intent = new Intent(this, ProfileSettingsContactUs.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("Fragment",fragmentName);
+        startActivity(intent);
 
     }
 
@@ -67,6 +74,10 @@ public class ProfileSettingsAcitivity extends AppCompatActivity {
 
     public void aboutSaharaButtonPressed(View view) {
 
+        Intent intent = new Intent(this, AboutUsCommonActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("Fragment",fragmentName);
+        startActivity(intent);
     }
 
     public void logoutButtonPressed(View view) {

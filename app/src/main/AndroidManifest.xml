@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UserDashboard.AboutUsCommonActivity"></activity>
+        <activity android:name=".UserDashboard.ProfileSettingsContactUs" />
         <activity android:name=".Login.ForgetPasswordSuccessMessage" />
         <activity android:name=".Login.SetNewPassword" />
         <activity android:name=".Login.VerifyOTP" />
