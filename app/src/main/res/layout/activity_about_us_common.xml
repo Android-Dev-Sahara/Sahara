@@ -202,7 +202,6 @@
         android:drawableStart="@drawable/login_back_btn"
         android:onClick="backButtonPressed"
         android:paddingStart="5dp"
-        android:shadowRadius="9dp"
         android:drawableTint="@color/white"
         android:paddingEnd="5dp"
         android:layout_marginBottom="7dp"/>
