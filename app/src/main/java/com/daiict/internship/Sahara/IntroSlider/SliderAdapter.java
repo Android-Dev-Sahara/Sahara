@@ -21,14 +21,14 @@ public class SliderAdapter extends PagerAdapter {
         this.context = context;
     }
 
-    int images[] = {
+    int[] images = {
             R.drawable.intro_image_needy,
             R.drawable.intro_image_ngo,
             R.drawable.intro_image_donar,
             R.drawable.intro_image_volunteeer
 
     };
-    int headings[] = {
+    int[] headings = {
             R.string.slider_heading_needy,
             R.string.slider_heading_ngo,
             R.string.slider_heading_donar,
@@ -36,7 +36,7 @@ public class SliderAdapter extends PagerAdapter {
 
     };
 
-    int description[] = {
+    int[] description = {
             R.string.slider_desc_needy,
             R.string.slider_desc_ngo,
             R.string.slider_desc_donar,
@@ -53,7 +53,7 @@ public class SliderAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
-        layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //Added a instantiate method
         View view = layoutInflater.inflate(R.layout.activity_introslider_slides, container, false);
 

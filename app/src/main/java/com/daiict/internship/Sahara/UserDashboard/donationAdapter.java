@@ -26,7 +26,7 @@ public class donationAdapter extends RecyclerView.Adapter<donationAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater=LayoutInflater.from(ctx);
-        View view=layoutInflater.inflate(R.layout.cardview_donation,parent,false);
+        View view=layoutInflater.inflate(R.layout.cardview_home_likeshare,parent,false);
         return  new donationAdapter.ViewHolder(view);
     }
 
@@ -46,8 +46,8 @@ public class donationAdapter extends RecyclerView.Adapter<donationAdapter.ViewHo
         TextView areaName,noOfDonation;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            areaName=itemView.findViewById(R.id.area_name);
-            noOfDonation=itemView.findViewById(R.id.no_of_donation);
+            areaName=itemView.findViewById(R.id.card_home_area);
+            noOfDonation=itemView.findViewById(R.id.card_home_time);
         }
 
 

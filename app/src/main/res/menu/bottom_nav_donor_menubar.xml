@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/bottom_nav_donor_home"
+        android:icon="@drawable/bottom_nav_home"
+        android:title="Home"
+        app:cnb_backgroundColor="@color/lightwhite"
+        app:cnb_iconColor="@color/black" />
+
+    <item
+        android:id="@+id/bottom_nav_donor_add"
+        android:icon="@drawable/bottom_nav_add"
+        android:title="Add"
+        app:cnb_backgroundColor="@color/lightwhite"
+        app:cnb_iconColor="@color/black"/>
+
+    <item
+        android:id="@+id/bottom_nav_donor_notification"
+        android:icon="@drawable/bottom_nav_notification"
+        android:title="Notifications"
+        app:cnb_backgroundColor="@color/lightwhite"
+        app:cnb_iconColor="@color/black"/>
+
+    <item
+        android:id="@+id/bottom_nav_donor_profile"
+        android:icon="@drawable/bottom_nav_profile"
+        android:title="Profile"
+        app:cnb_backgroundColor="@color/lightwhite"
+        app:cnb_iconColor="@color/black"/>
+
+
+</menu>
