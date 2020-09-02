@@ -61,7 +61,10 @@ public class NgoSelectionofVolunteer extends AppCompatActivity {
     }
 
     public void AllDataProceed(View view) {
-
+        Intent intent = new Intent(this, BottomNavigationUsers.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("Fragment", fragmentName);
+        startActivity(intent);
 
     }
 }
