@@ -6,13 +6,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.daiict.internship.Sahara.DataOperation.SharedPrefManager;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SignUpSingle;
 import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -21,17 +32,34 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class CovidInfoActivity extends AppCompatActivity {
 
     FirebaseAuth mAuthentication;
     DatabaseReference mRef;
 
+    boolean isdatafetchingdone = false;
     String userId;
+    TextView tvCases, tvRecovered, tvCritical, tvActive, tvTodayCases, tvTotalDeaths, tvTodayDeaths, tvAffectedCountries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_covid_info);
+
+
+        tvCases = findViewById(R.id.tvCases);
+        tvRecovered = findViewById(R.id.tvRecovered);
+        tvCritical = findViewById(R.id.tvCritical);
+        tvActive = findViewById(R.id.tvActive);
+        tvTodayCases = findViewById(R.id.tvTodayCases);
+        tvTotalDeaths = findViewById(R.id.tvTotalDeaths);
+        tvTodayDeaths = findViewById(R.id.tvTodayDeaths);
+        tvAffectedCountries = findViewById(R.id.tvAffectedCountries);
+        coronaDataFetch();
+
         mAuthentication = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference();
 
@@ -57,7 +85,8 @@ public class CovidInfoActivity extends AppCompatActivity {
 
                                 // Store in Shared Pref
                                 SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "NGO");
-                                changeActivity();
+                               // changeActivity();
+                                isdatafetchingdone = true;
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
                             }
@@ -85,7 +114,8 @@ public class CovidInfoActivity extends AppCompatActivity {
 
                                 // Store the Data in Shared Preferences
                                 SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Donor");
-                                changeActivity();
+                                isdatafetchingdone = true;
+                                //changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
                             }
@@ -111,7 +141,8 @@ public class CovidInfoActivity extends AppCompatActivity {
                                 Log.e("onComplete: ", "User is in Needy and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("Needy");       // Singleton Usage
                                 SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Needy");
-                                changeActivity();
+                                isdatafetchingdone = true;
+                                //changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
                             }
@@ -137,7 +168,8 @@ public class CovidInfoActivity extends AppCompatActivity {
                                 Log.e("onComplete: ", "User is in Volunteer and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("Volunteer");       // Singleton Usage
                                 SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Volunteer");
-                                changeActivity();
+                                isdatafetchingdone = true;
+                                //changeActivity();
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
                             }
@@ -161,4 +193,85 @@ public class CovidInfoActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
+    public void coronaDataFetch()
+    {
+        String url = "https://disease.sh/v3/covid-19/all";
+
+        StringRequest request
+                = new StringRequest(
+                Request.Method.GET,
+                url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // Handle the JSON object and handle it inside try and catch
+                try {
+
+                    // Creating object of JSONObject
+                    JSONObject jsonObject
+                            = new JSONObject(
+                            response.toString());
+
+                    // Set the data in text view
+                    // which are available in JSON format
+                    // Note that the parameter inside
+                    // the getString() must match
+                    // with the name given in JSON format
+                    tvCases.setText(
+                            jsonObject.getString(
+                                    "cases"));
+                    tvRecovered.setText(
+                            jsonObject.getString(
+                                    "recovered"));
+                    tvCritical.setText(
+                            jsonObject.getString(
+                                    "critical"));
+                    tvActive.setText(
+                            jsonObject.getString(
+                                    "active"));
+                    tvTodayCases.setText(
+                            jsonObject.getString(
+                                    "todayCases"));
+                    tvTotalDeaths.setText(
+                            jsonObject.getString(
+                                    "deaths"));
+                    tvTodayDeaths.setText(
+                            jsonObject.getString(
+                                    "todayDeaths"));
+                    tvAffectedCountries.setText(
+                            jsonObject.getString(
+                                    "affectedCountries"));
+                }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+        }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(CovidInfoActivity.this, "Cant load : \n" + error  , Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        RequestQueue requestQueue
+                = Volley.newRequestQueue(this);
+        requestQueue.add(request);
+    }
+
+    public void btnLoginOnClick(View view) {
+        if(isdatafetchingdone)
+        {
+            changeActivity();
+        }
+        else
+        {
+            //Wait until isdatafecthing gets true
+        }
+
+    }
 }
+
