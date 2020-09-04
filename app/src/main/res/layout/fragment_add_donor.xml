@@ -11,7 +11,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="400dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/fragment_donor_add_donate_img" />
 
@@ -45,24 +45,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="400dp"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/text_signup_second_age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/add_donor_fragment_date_donation"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <DatePicker
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:spinnersShown="true"
-                tools:targetApi="lollipop" />
 
             <Switch
                 android:id="@+id/switchRawFood"

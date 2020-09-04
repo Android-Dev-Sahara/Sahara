@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserDashboard.NgoDonationsAddItemData">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:weightSum="6"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_back_ngo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="backBtnAddNgoDataDisplay"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/login_back_btn" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_weight="5"
+            android:textAlignment="gravity"
+            android:fontFamily="@font/holtwood_one_sc"
+            android:text="@string/add_donor_activity_title_text"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_dataitemshow_ngo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:padding="4dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/add_btn_donate_ngo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/popup_window_rectangle_shape_button"
+        android:fontFamily="@font/holtwood_one_sc"
+        android:onClick="donateButtonClickedNgo"
+        android:text="@string/add_donor_activity_button_donate"
+        android:textColor="@color/white"
+        android:visibility="invisible" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_ngo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/add_btn_donate_ngo"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="70dp"
+        android:clickable="true"
+        android:onClick="addItemNgo"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/bottom_nav_add" />
+
+
+</RelativeLayout>
