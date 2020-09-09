@@ -11,6 +11,13 @@ public class SignUpSingle {
     private SignUpSingle() {
     }       // Private Default Constructor
 
+    public static synchronized SignUpSingle getInstance() {
+        if (mInstance == null) {
+            mInstance = new SignUpSingle();
+        }
+        return mInstance;
+    }
+
     private String actor;       // Category container
 
     // Common Fields for all....
@@ -37,13 +44,6 @@ public class SignUpSingle {
 
     // NGO and Needy Field
     private String membersCount;
-
-    public static synchronized SignUpSingle getInstance() {
-        if (mInstance == null) {
-            mInstance = new SignUpSingle();
-        }
-        return mInstance;
-    }
 
     public String getActor() {
         return actor;

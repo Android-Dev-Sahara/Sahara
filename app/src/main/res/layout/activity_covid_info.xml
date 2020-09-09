@@ -231,6 +231,7 @@
                 android:onClick="btnLoginOnClick"
                 android:text="Proceed To APP"
                 android:textAllCaps="true"
+                android:enabled="true"
                 android:textColor="@color/white" />
 
         </LinearLayout>

@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
          recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
-        ArrayList<HomeDataFetchClass> list=new ArrayList<HomeDataFetchClass>();
+        ArrayList<HomeDataFetchClass> list = new ArrayList<HomeDataFetchClass>();
         list.add(new HomeDataFetchClass("Hello World NGO","12:00 Hrs","12-12-2020","Gandhinagar","Infocity"));
         list.add(new HomeDataFetchClass("Hello World NGO","12:00 Hrs","12-12-2020","Gandhinagar","Infocity"));
         list.add(new HomeDataFetchClass("Hello World NGO","12:00 Hrs","12-12-2020","Gandhinagar","Infocity"));

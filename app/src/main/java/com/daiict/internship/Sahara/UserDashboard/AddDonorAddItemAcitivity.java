@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.daiict.internship.Sahara.ModelData.DonationModelData;
+import com.daiict.internship.Sahara.ModelData.*;
 import com.daiict.internship.Sahara.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

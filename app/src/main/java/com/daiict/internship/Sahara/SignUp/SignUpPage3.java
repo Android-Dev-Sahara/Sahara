@@ -1,8 +1,5 @@
 package com.daiict.internship.Sahara.SignUp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,17 +15,15 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.daiict.internship.Sahara.Login.Login;
-import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
-import com.daiict.internship.Sahara.ModelData.DonoModelData;
-import com.daiict.internship.Sahara.ModelData.NGOModelData;
-import com.daiict.internship.Sahara.ModelData.NeedyModelData;
-import com.daiict.internship.Sahara.ModelData.VolunteerModelData;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.daiict.internship.Sahara.Login.*;
+import com.daiict.internship.Sahara.ModelData.*;
 import com.daiict.internship.Sahara.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;

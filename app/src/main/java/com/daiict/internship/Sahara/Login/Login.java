@@ -12,11 +12,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.daiict.internship.Sahara.DataOperation.SharedPrefManager;
-import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
+import com.daiict.internship.Sahara.DataOperation.*;
+import com.daiict.internship.Sahara.LoginSignUPDashboard.*;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SelectionCategory;
-import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
+import com.daiict.internship.Sahara.UserDashboard.*;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
