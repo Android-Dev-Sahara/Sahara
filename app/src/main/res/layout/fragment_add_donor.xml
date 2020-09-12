@@ -54,16 +54,18 @@
                 android:fontFamily="@font/muli_black"
                 android:text="@string/add_donor_fragment_switch_raw"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-            <Switch
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:fontFamily="@font/muli_black"
-                android:text="@string/add_donor_fragment_switch_self_donation"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+<!--            <Switch-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:fontFamily="@font/muli_black"-->
+<!--                android:text="@string/add_donor_fragment_switch_self_donation"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:ignore="UseSwitchCompatOrMaterialXml" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -12,53 +12,30 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.daiict.internship.Sahara.R;
+import com.daiict.internship.Sahara.SignUp.SignUpSingle;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 
 
 public class GeneralPurposeNotificationFragment extends Fragment {
+    public static ArrayList<GeneralNotificationClass> list = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view =  inflater.inflate(R.layout.fragment_general_purpose_notification, container, false);
+        View view = inflater.inflate(R.layout.fragment_general_purpose_notification, container, false);
         RecyclerView rview = view.findViewById(R.id.recyclerview_notification_general_purpose);
         rview.setHasFixedSize(true);
         rview.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        ArrayList<GeneralNotificationClass> list=new ArrayList<GeneralNotificationClass>();
 
-        //Just For Checking Purpose
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
-        list.add(new GeneralNotificationClass("Hello Aakash I am preparing this class how are you i am fine what about you are you allright","12-12-2019","12:12"));
+        Collections.reverse(list);
         //Delete above One once checked
-        final NotificationGeneralNotificationAdapter notificationGeneralNotificationAdapter = new NotificationGeneralNotificationAdapter(this.getActivity(),list);
+        final NotificationGeneralNotificationAdapter notificationGeneralNotificationAdapter = new NotificationGeneralNotificationAdapter(this.getActivity(), list);
         rview.setAdapter(notificationGeneralNotificationAdapter);
 
         SwipeRefreshLayout swipeRefreshLayout = view.findViewById(R.id.swiper_notification_general_purpose);
@@ -70,7 +47,6 @@ public class GeneralPurposeNotificationFragment extends Fragment {
                 notificationGeneralNotificationAdapter.notifyDataSetChanged();
             }
         });
-
 
 
         return view;

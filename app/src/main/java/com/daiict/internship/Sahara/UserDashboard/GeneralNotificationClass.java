@@ -1,17 +1,24 @@
 package com.daiict.internship.Sahara.UserDashboard;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.*;
+import java.util.Calendar;
 
 public class GeneralNotificationClass {
     private String text_data_notification;
     private String date;
     private String time;
 
-    public GeneralNotificationClass(String text_data_notification, String date, String time) {
+    public GeneralNotificationClass(String text_data_notification) {
+        Calendar calendar = Calendar.getInstance();
         this.text_data_notification = text_data_notification;
-        this.date = date;
-        this.time = time;
+        this.date = calendar.get(Calendar.DATE ) + "/" +  calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR);
+        this.time = calendar.get(Calendar.HOUR) + ":" +  calendar.get(Calendar.MINUTE);
+        if (calendar.get(Calendar.AM_PM) == Calendar.AM) {
+            time = time.concat(" AM");
+        } else {
+            time = time.concat(" PM");
+        }
+
     }
 
     public String getText_data_notification() {

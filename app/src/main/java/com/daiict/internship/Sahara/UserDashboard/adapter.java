@@ -34,11 +34,12 @@ public class adapter extends RecyclerView.Adapter<adapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        AddItemDataClass item = list.get(position);
+        AddItemDataClass item;
+        item = list.get(position);
         holder.itemname.setText(item.getItemname());
-        holder.persons.setText( Integer.toString(item.getNoofpersons()));
-        holder.weight.setText(Float.toString(item.getWeight()));
-        holder.spoilage.setText(Boolean .toString(item.isSpoilage()));
+        holder.persons.setText( item.getNoofpersons());
+        holder.weight.setText(item.getWeight());
+        holder.spoilage.setText(item.getSpoilage());
 
     }
 

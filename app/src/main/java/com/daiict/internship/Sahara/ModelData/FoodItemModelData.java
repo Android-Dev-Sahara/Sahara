@@ -1,19 +1,18 @@
-package com.daiict.internship.Sahara.UserDashboard;
+package com.daiict.internship.Sahara.ModelData;
 
-import java.util.ArrayList;
-
-public class AddItemDataClass {
-
+public class FoodItemModelData {
     private String itemname;
     private String noofpersons;
-    private String weight;
     private String spoilage;
+    private String weight;
 
-    public AddItemDataClass(String itemname, String noofpersons, String weight, String spoilage) {
+    FoodItemModelData() {}
+
+    public FoodItemModelData(String itemname, String noofpersons, String spoilage, String weight) {
         this.itemname = itemname;
         this.noofpersons = noofpersons;
-        this.weight = weight;
         this.spoilage = spoilage;
+        this.weight = weight;
     }
 
     public String getItemname() {
@@ -32,19 +31,19 @@ public class AddItemDataClass {
         this.noofpersons = noofpersons;
     }
 
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
-
     public String getSpoilage() {
         return spoilage;
     }
 
     public void setSpoilage(String spoilage) {
         this.spoilage = spoilage;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 }

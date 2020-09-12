@@ -32,14 +32,13 @@ public class SignUpSingle {
     private String dateOfBirth_Establishment;
     // SignUp3
     private String contactNo;
-    private String cityName;
     private String gender;
 
     // NGO specific field
     private String ngoName;
 
     // Volunteer Specific field
-    private String volunteerType;
+    private String volunteerNgo;
     private String isWorkWithNgo;
 
     // NGO and Needy Field
@@ -117,14 +116,6 @@ public class SignUpSingle {
         this.contactNo = contactNo;
     }
 
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -133,12 +124,12 @@ public class SignUpSingle {
         this.gender = gender;
     }
 
-    public String getVolunteerType() {
-        return volunteerType;
+    public String getVolunteerNgo() {
+        return volunteerNgo;
     }
 
-    public void setVolunteerType(String volunteerType) {
-        this.volunteerType = volunteerType;
+    public void setVolunteerNgo(String volunteerNgo) {
+        this.volunteerNgo = volunteerNgo;
     }
 
     public String getIsWorkWithNgo() {

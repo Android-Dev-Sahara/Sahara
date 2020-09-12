@@ -32,7 +32,7 @@ public class donationAdapter extends RecyclerView.Adapter<donationAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DonationClass donationItem=List.get(position);
+        DonationClass donationItem = List.get(position);
         holder.areaName.setText(donationItem.getArea_name());
         holder.noOfDonation.setText(donationItem.getNo_of_donation());
     }

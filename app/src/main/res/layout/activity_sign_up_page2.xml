@@ -84,7 +84,7 @@
                 app:startIconDrawable="@drawable/signup_pages_textinput"
                 app:startIconTint="@color/black">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/edtxt_signup_second_address2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

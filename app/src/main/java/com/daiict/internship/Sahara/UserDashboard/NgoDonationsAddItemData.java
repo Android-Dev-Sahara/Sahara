@@ -106,7 +106,7 @@ public class NgoDonationsAddItemData extends AppCompatActivity {
             public void onClick(View view) {
                 if (!itemName.getText().toString().isEmpty() && !noofPersons.getText().toString().isEmpty() && !weight.getText().toString().isEmpty()) {
                     Snackbar.make(view, "Item Added Successfully", Snackbar.LENGTH_LONG).show();
-                    list.add(new AddItemDataClass(itemName.getText().toString(), Integer.parseInt(noofPersons.getText().toString()), Float.parseFloat(weight.getText().toString()), spoil));
+                    list.add(new AddItemDataClass(itemName.getText().toString(), noofPersons.getText().toString(), weight.getText().toString(), spoil ? "true" : "false"));
                     dialog.dismiss();
                     if (list.size() != 0) {
                         donateButton.setVisibility(View.VISIBLE);

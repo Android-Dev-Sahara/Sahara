@@ -6,9 +6,9 @@ public class NGOModelData {
     private String emailId;
     private String ngoName;
     private String address;
+    private String area;
     private String establishedYear;
     private String contactNo;
-    private String cityName;
     private String membersCount;
     private String createDate;
     private String modifyDate;
@@ -16,15 +16,15 @@ public class NGOModelData {
 
     public NGOModelData() {}
 
-    public NGOModelData(String ngoId, String userName, String emailId, String ngoName, String address, String establishedYear, String contactNo, String cityName, String membersCount, String createDate, String modifyDate, String userIsVerified) {
+    public NGOModelData(String ngoId, String userName, String emailId, String ngoName, String address, String area, String establishedYear, String contactNo, String membersCount, String createDate, String modifyDate, String userIsVerified) {
         this.ngoId = ngoId;
         this.userName = userName;
         this.emailId = emailId;
         this.ngoName = ngoName;
         this.address = address;
+        this.area = area;
         this.establishedYear = establishedYear;
         this.contactNo = contactNo;
-        this.cityName = cityName;
         this.membersCount = membersCount;
         this.createDate = createDate;
         this.modifyDate = modifyDate;
@@ -71,6 +71,14 @@ public class NGOModelData {
         this.address = address;
     }
 
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
     public String getEstablishedYear() {
         return establishedYear;
     }
@@ -85,14 +93,6 @@ public class NGOModelData {
 
     public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
     }
 
     public String getMembersCount() {

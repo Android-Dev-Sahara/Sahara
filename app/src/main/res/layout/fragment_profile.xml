@@ -34,13 +34,14 @@
             android:elevation="3dp"
             android:paddingStart="30dp"
             android:src="@drawable/settings_profile_fragment"
-            android:tint="@color/white" />
+            app:tint="@color/white" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
         android:padding="10dp"
         android:weightSum="10">
@@ -60,7 +61,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/social_network"
                 app:civ_border_color="@color/colorPrimary"
                 app:civ_border_width="3dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -81,98 +82,9 @@
                 app:layout_constraintTop_toTopOf="@+id/circleImageView"
                 app:layout_constraintVertical_bias="0.88"
                 app:maxImageSize="30dp"
-                app:srcCompat="@drawable/bottom_nav_add" />
+                app:srcCompat="@drawable/bottom_nav_add"
+                tools:ignore="KeyboardInaccessibleWidget" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5.6"
-            android:orientation="vertical"
-            android:weightSum="10">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="5"
-                    android:fontFamily="@font/holtwood_one_sc"
-                    android:text="@string/profile_fragment_title_donations"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="5"
-                    android:fontFamily="@font/holtwood_one_sc"
-                    android:text="@string/profile_fragment_title_needy"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <TextView
-                    android:id="@+id/profilefrag_text_donations"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="5"
-                    android:fontFamily="@font/bungee"
-                    android:text="@string/profile_fragment_text_zero"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/profilefrag_text_needy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="5"
-                    android:fontFamily="@font/bungee"
-                    android:text="@string/profile_fragment_text_zero"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/profilefrag_textview_donation_accepeted"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/holtwood_one_sc"
-                android:text="@string/profile_fragment_title_donation_accept"
-                android:textSize="16sp"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/profilefrag_text_donation_accept"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/bungee"
-                android:text="@string/profile_fragment_text_zero"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:visibility="gone" />
-
-
-        </LinearLayout>
     </LinearLayout>
 
 
@@ -188,15 +100,17 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+
     <TextView
-        android:id="@+id/profilefrag_text_status"
+        android:id="@+id/profilefrag_text_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:fontFamily="@font/holtwood_one_sc"
+        android:fontFamily="@font/muli_black"
         android:paddingStart="34dp"
         android:paddingEnd="20dp"
-        android:text="@string/profile_fragment_title_status" />
+        android:text="@string/profile_fragment_title_area"
+        android:textSize="18sp" />
 
 
     <Button
@@ -204,7 +118,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/button_design_transparent_border"
         android:elevation="4dp"
@@ -231,8 +145,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
                 android:padding="4dp"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
 
         </LinearLayout>
@@ -242,6 +158,8 @@
         android:id="@+id/profilefrag_imgview_nodonation"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/android_splash_logo" />
+        android:src="@drawable/android_splash_logo"
+        android:visibility="visible"
+        tools:ignore="ContentDescription" />
 
 </LinearLayout>
