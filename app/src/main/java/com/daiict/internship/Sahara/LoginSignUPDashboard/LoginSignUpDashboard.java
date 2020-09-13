@@ -9,13 +9,12 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 
-import com.daiict.internship.Sahara.DataOperation.SharedPrefManager;
-import com.daiict.internship.Sahara.Login.CovidInfoActivity;
+import com.daiict.internship.Sahara.DataOperation.*;
 import com.daiict.internship.Sahara.Login.Login;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SelectionCategory;
 import com.daiict.internship.Sahara.SignUp.SignUpSingle;
-import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
+import com.daiict.internship.Sahara.UserDashboard.*;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

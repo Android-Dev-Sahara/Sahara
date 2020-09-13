@@ -53,7 +53,5 @@ public class NotificationGeneralNotificationAdapter extends RecyclerView.Adapter
             textView_time = itemView.findViewById(R.id.general_notification_time);
 
         }
-
-
     }
 }

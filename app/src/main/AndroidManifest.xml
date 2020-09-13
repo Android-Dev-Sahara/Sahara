@@ -3,6 +3,8 @@
     package="com.daiict.internship.Sahara">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,32 +13,95 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserDashboard.NgoSelectionofVolunteer"></activity>
-        <activity android:name=".UserDashboard.NgoSelectionLocationAddData" />
-        <activity android:name=".UserDashboard.NgoDonationsAddItemData" />
-        <activity android:name=".UserDashboard.AboutUsCommonActivity" />
-        <activity android:name=".UserDashboard.ProfileSettingsContactUs" />
-        <activity android:name=".Login.ForgetPasswordSuccessMessage" />
-        <activity android:name=".Login.SetNewPassword" />
-        <activity android:name=".Login.VerifyOTP" />
-        <activity android:name=".Login.SelectForgotPassMethod" />
-        <activity android:name=".Login.CovidInfoActivity" />
-        <activity android:name=".UserDashboard.ProfileSettingsFeedback" />
-        <activity android:name=".UserDashboard.ProfileSettingsReportProblem" />
-        <activity android:name=".UserDashboard.ProfileEditProfileActivity" />
-        <activity android:name=".UserDashboard.ProfileSettingsAcitivity" />
-        <activity android:name=".UserDashboard.AddDonorAddItemAcitivity" />
-        <activity android:name=".UserDashboard.BottomNavigationUsers" />
-        <activity android:name=".SignUp.SignUpPage3" />
-        <activity android:name=".SignUp.SignUpPage2" />
-        <activity android:name=".SignUp.SignUpPage1" />
-        <activity android:name=".Login.ForgotPassword" />
-        <activity android:name=".LoginSignUPDashboard.AppWorkDetails" />
-        <activity android:name=".Login.Login" />
-        <activity android:name=".SignUp.SelectionCategory" />
-        <activity android:name=".LoginSignUPDashboard.LoginSignUpDashboard" />
-        <activity android:name=".IntroSlider.IntroSlider" />
-        <activity android:name=".Splash_Screen.SplashScreen">
+        <activity android:name=".UserDashboard.DonationDetails"></activity>
+        <activity
+            android:name=".UserDashboard.NgoSelectionofVolunteer"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.NgoSelectionLocationAddData"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.NgoDonationsAddItemData"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.AboutUsCommonActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.ProfileSettingsContactUs"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login.CovidInfoActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.ProfileSettingsFeedback"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.ProfileSettingsReportProblem"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.ProfileEditProfileActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.ProfileSettingsAcitivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.AddDonorAddItemAcitivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserDashboard.BottomNavigationUsers"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp.SignUpPage3"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp.SignUpPage2"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp.SignUpPage1"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login.ForgotPassword"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginSignUPDashboard.AppWorkDetails"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login.Login"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp.SelectionCategory"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginSignUPDashboard.LoginSignUpDashboard"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".IntroSlider.IntroSlider"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Splash_Screen.SplashScreen"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

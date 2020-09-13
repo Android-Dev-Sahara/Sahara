@@ -1,15 +1,15 @@
 package com.daiict.internship.Sahara.Login;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,13 +17,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.daiict.internship.Sahara.DataOperation.SharedPrefManager;
+import com.daiict.internship.Sahara.DataOperation.*;
 import com.daiict.internship.Sahara.R;
 import com.daiict.internship.Sahara.SignUp.SignUpSingle;
-import com.daiict.internship.Sahara.UserDashboard.BottomNavigationUsers;
+import com.daiict.internship.Sahara.UserDashboard.*;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,6 +42,7 @@ public class CovidInfoActivity extends AppCompatActivity {
     boolean isdatafetchingdone = false;
     String userId;
     TextView tvCases, tvRecovered, tvCritical, tvActive, tvTodayCases, tvTotalDeaths, tvTodayDeaths, tvAffectedCountries;
+    Button covidbtnsubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class CovidInfoActivity extends AppCompatActivity {
         tvTotalDeaths = findViewById(R.id.tvTotalDeaths);
         tvTodayDeaths = findViewById(R.id.tvTodayDeaths);
         tvAffectedCountries = findViewById(R.id.tvAffectedCountries);
+        covidbtnsubmit = findViewById(R.id.cobidbtnsubmit);
         coronaDataFetch();
 
         mAuthentication = FirebaseAuth.getInstance();
@@ -82,11 +83,12 @@ public class CovidInfoActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in NGO and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("NGO");       // Singleton Usage
-
+                                covidbtnsubmit.setEnabled(true);
                                 // Store in Shared Pref
                                 SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "NGO");
                                // changeActivity();
                                 isdatafetchingdone = true;
+
                             } else {
                                 Log.e("onComplete: ", "Try Again Later..");
                             }
@@ -111,7 +113,7 @@ public class CovidInfoActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Donor and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("Donor");       // Singleton Usage
-
+                                covidbtnsubmit.setEnabled(true);
                                 // Store the Data in Shared Preferences
                                 SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Donor");
                                 isdatafetchingdone = true;
@@ -140,6 +142,7 @@ public class CovidInfoActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Needy and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("Needy");       // Singleton Usage
+                                covidbtnsubmit.setEnabled(true);
                                 SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Needy");
                                 isdatafetchingdone = true;
                                 //changeActivity();
@@ -167,6 +170,7 @@ public class CovidInfoActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Log.e("onComplete: ", "User is in Volunteer and Verification is Updated");
                                 SignUpSingle.getInstance().setActor("Volunteer");       // Singleton Usage
+                                covidbtnsubmit.setEnabled(true);
                                 SharedPrefManager.setPrefVal(CovidInfoActivity.this, SharedPrefManager.userRole, "Volunteer");
                                 isdatafetchingdone = true;
                                 //changeActivity();

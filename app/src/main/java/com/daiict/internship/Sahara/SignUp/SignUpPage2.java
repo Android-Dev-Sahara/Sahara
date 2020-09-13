@@ -1,5 +1,6 @@
 package com.daiict.internship.Sahara.SignUp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
@@ -9,22 +10,30 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.daiict.internship.Sahara.Login.Login;
-import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
+import com.daiict.internship.Sahara.Login.*;
+import com.daiict.internship.Sahara.LoginSignUPDashboard.*;
 import com.daiict.internship.Sahara.R;
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 import java.util.Date;
 
 public class SignUpPage2 extends AppCompatActivity {
 
-    TextInputEditText add1, add2;
+    TextInputEditText add1;
+    MaterialAutoCompleteTextView area;
     DatePicker dt;
     String get_category;
 
@@ -32,6 +41,7 @@ public class SignUpPage2 extends AppCompatActivity {
     Button btn_next;
     ImageView imageView_back;
 
+    ArrayAdapter<String> areaList;
     private String address1, address2, dob;
 
     @Override
@@ -39,6 +49,25 @@ public class SignUpPage2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page2);
         viewVisibility();
+    }
+
+    private void loadArea() {
+        areaList = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref.child("tbl_Areas").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String area_str = dataSnapshot.child("areaName").getValue(String.class);
+                    areaList.add(area_str);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 
@@ -81,7 +110,7 @@ public class SignUpPage2 extends AppCompatActivity {
 
     private void fetchData() {
         address1 = add1.getText().toString();
-        address2 = add2.getText().toString();
+        address2 = area.getText().toString();
         int dd, mm, yy;
         dd = dt.getDayOfMonth();
         mm = dt.getMonth();
@@ -99,9 +128,11 @@ public class SignUpPage2 extends AppCompatActivity {
         TextView textView_Age;
         textView_Age = findViewById(R.id.text_signup_second_age);
         add1 = findViewById(R.id.edtxt_signup_second_address1);
-        add2 = findViewById(R.id.edtxt_signup_second_address2);
+        area = findViewById(R.id.edtxt_signup_second_address2);
         dt = findViewById(R.id.datepi_signup_second_age_year);
         textView_invalidDate = findViewById(R.id.invalid_date);
+        loadArea();
+        area.setAdapter(areaList);
 
         if (get_category.equalsIgnoreCase("ngo")) {
             textView_Age.setText(getResources().getString(R.string.estalbished_year));
@@ -113,13 +144,16 @@ public class SignUpPage2 extends AppCompatActivity {
     private boolean validateAddress() {
         // Till We get the Address from User, Afterwards we can get Fetch the Location Automatically
         String addressLine1 = add1.getText().toString().trim();
-        String addressLine2 = add2.getText().toString().trim();
+        String addressLine2 = area.getText().toString().trim();
 
-        if (addressLine1.isEmpty() && addressLine2.isEmpty()) {
-            add1.setError("Please Enter Address");
+        if (addressLine1.isEmpty()) {
+            add1.setError("Enter Proper Address!");
+            return false;
+        } else if (addressLine2.isEmpty()) {
+            area.setError("Enter Area!");
             return false;
         } else {
-            return true;
+            return  true;
         }
     }
 

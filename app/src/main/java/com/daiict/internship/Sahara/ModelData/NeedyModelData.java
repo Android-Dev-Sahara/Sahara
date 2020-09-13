@@ -5,9 +5,9 @@ public class NeedyModelData {
     private String userName;
     private String emailId;
     private String address;
+    private String area;
     private String dateOfBirth;
     private String contactNo;
-    private String cityName;
     private String membersCount;
     private String gender;
     private String createDate;
@@ -16,14 +16,14 @@ public class NeedyModelData {
 
     public NeedyModelData () {}
 
-    public NeedyModelData(String userId, String userName, String emailId, String address, String dateOfBirth, String contactNo, String cityName, String membersCount, String gender, String createDate, String modifyDate, String userIsVerified) {
+    public NeedyModelData(String userId, String userName, String emailId, String address, String area, String dateOfBirth, String contactNo, String membersCount, String gender, String createDate, String modifyDate, String userIsVerified) {
         this.userId = userId;
         this.userName = userName;
         this.emailId = emailId;
         this.address = address;
+        this.area = area;
         this.dateOfBirth = dateOfBirth;
         this.contactNo = contactNo;
-        this.cityName = cityName;
         this.membersCount = membersCount;
         this.gender = gender;
         this.createDate = createDate;
@@ -63,6 +63,14 @@ public class NeedyModelData {
         this.address = address;
     }
 
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -77,14 +85,6 @@ public class NeedyModelData {
 
     public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
     }
 
     public String getMembersCount() {

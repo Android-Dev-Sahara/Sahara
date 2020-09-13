@@ -53,7 +53,7 @@
     <string name="signup_page2_text_title">Create\nAccount</string>
     <string name="signup_page2_edit_add_line1">Address Line 1</string>
 
-    <string name="signup_page2_edit_add_line2">Address Line 2</string>
+    <string name="signup_page2_edit_add_line2">Area</string>
     <string name="signup_page2_text_select_age">Select Your Age</string>
 
     <string name="signup_page2_btn_next">Next</string>
@@ -124,7 +124,9 @@
     <string name="profile_fragment_title_donation_accept">Donation Accepted</string>
     <string name="profile_fragment_text_zero">0</string>
     <string name="profile_fragment_title_name">Name</string>
-    <string name="profile_fragment_title_status">Status</string>
+    <string name="profile_fragment_title_email">Email</string>
+    <string name="profile_fragment_title_area">Area</string>
+    <string name="profile_fragment_title_dob">Date of Birth</string>
     <string name="profile_fragment_button_edit_profile">Edit Profile</string>
     <!-- Settings Activity-->
 
@@ -199,6 +201,11 @@
     <string name="ngo_description">NGO Helps us to manage a delivery.</string>
     <string name="volunteer_description">Volunteer(aka Hunger Hero) is the backbone of our system.</string>
     <string name="needy_description">Feed Us We are Hungry</string>
+    <string name="enter_ngo_name">Enter NGO Name</string>
+    <string name="thanks_with_a_grateful_heart">Thanks with a Grateful Heart!!</string>
+    <string name="donation_details">Donation Details</string>
+    <string name="items">Items</string>
+    <string name="recent_orders">Recent Orders</string>
 
 
 </resources>

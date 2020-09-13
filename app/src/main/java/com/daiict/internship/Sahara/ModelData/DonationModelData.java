@@ -5,22 +5,50 @@ public class DonationModelData {
     private String isRawFood;
     private String pickUpTime;
     private String donorId;
-    private String donationAddress;
     private String createDate;
     private String modifyDate;
     private String status;
+    private String acceptedBy;
+    private String assignTo;
 
     public DonationModelData() {}
 
-    public DonationModelData(String donationId, String isRawFood, String pickUpTime, String donorId, String donationAddress, String createDate, String modifyDate, String status) {
+    public DonationModelData(String date, String pickup, String stat, String acceptBy) {
+        modifyDate = date;
+        pickUpTime = pickup;
+        status = stat;
+        acceptedBy = acceptBy;
+    }
+
+    public DonationModelData(String donationId, String isRawFood, String pickUpTime, String donorId, String createDate, String modifyDate, String status, String acceptedBy) {
         this.donationId = donationId;
         this.isRawFood = isRawFood;
         this.pickUpTime = pickUpTime;
         this.donorId = donorId;
-        this.donationAddress = donationAddress;
         this.createDate = createDate;
         this.modifyDate = modifyDate;
         this.status = status;
+        this.acceptedBy = acceptedBy;
+    }
+
+    public DonationModelData(String donationId, String isRawFood, String pickUpTime, String donorId, String createDate, String modifyDate, String status, String acceptedBy, String assignTo) {
+        this.donationId = donationId;
+        this.isRawFood = isRawFood;
+        this.pickUpTime = pickUpTime;
+        this.donorId = donorId;
+        this.createDate = createDate;
+        this.modifyDate = modifyDate;
+        this.status = status;
+        this.acceptedBy = acceptedBy;
+        this.assignTo = assignTo;
+    }
+
+    public String getAssignTo() {
+        return assignTo;
+    }
+
+    public void setAssignTo(String assignTo) {
+        this.assignTo = assignTo;
     }
 
     public String getDonationId() {
@@ -55,14 +83,6 @@ public class DonationModelData {
         this.donorId = donorId;
     }
 
-    public String getDonationAddress() {
-        return donationAddress;
-    }
-
-    public void setDonationAddress(String donationAddress) {
-        this.donationAddress = donationAddress;
-    }
-
     public String getCreateDate() {
         return createDate;
     }
@@ -85,5 +105,13 @@ public class DonationModelData {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getAcceptedBy() {
+        return acceptedBy;
+    }
+
+    public void setAcceptedBy(String acceptedBy) {
+        this.acceptedBy = acceptedBy;
     }
 }

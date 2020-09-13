@@ -1,27 +1,29 @@
 package com.daiict.internship.Sahara.UserDashboard;
 
 public class VolunteerSelectionClass {
-    private String Name;
-    private boolean checked;
+    private String id;
+    private String name;
 
-    public VolunteerSelectionClass(String name) {
-        Name = name;
+    VolunteerSelectionClass() {}
+
+    public VolunteerSelectionClass(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
-
-    public boolean isChecked() {
-        return checked;
-    }
-
-    public void setChecked(boolean checked) {
-        this.checked = checked;
-    }
-
 }

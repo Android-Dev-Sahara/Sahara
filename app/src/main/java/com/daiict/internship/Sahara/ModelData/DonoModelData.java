@@ -5,9 +5,9 @@ public class DonoModelData {
     private String userName;
     private String emailID;
     private String address;
+    private String area;
     private String dateOfBirth;
     private String contactNo;
-    private String cityName;
     private String gender;
     private String createDate;
     private String modifyDate;
@@ -15,14 +15,14 @@ public class DonoModelData {
 
     public DonoModelData() {}  // Default Constructor
 
-    public DonoModelData(String userID, String userName, String emailID, String address, String dateOfBirth, String contactNo, String cityName, String gender, String createDate, String modifyDate, String userIsVerified) {
+    public DonoModelData(String userID, String userName, String emailID, String address, String area, String dateOfBirth, String contactNo, String gender, String createDate, String modifyDate, String userIsVerified) {
         this.userID = userID;
         this.userName = userName;
         this.emailID = emailID;
         this.address = address;
+        this.area = area;
         this.dateOfBirth = dateOfBirth;
         this.contactNo = contactNo;
-        this.cityName = cityName;
         this.gender = gender;
         this.createDate = createDate;
         this.modifyDate = modifyDate;
@@ -61,6 +61,14 @@ public class DonoModelData {
         this.address = address;
     }
 
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -75,14 +83,6 @@ public class DonoModelData {
 
     public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
     }
 
     public String getGender() {

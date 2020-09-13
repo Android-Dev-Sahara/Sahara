@@ -18,8 +18,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.daiict.internship.Sahara.Login.Login;
-import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
+import com.daiict.internship.Sahara.Login.*;
+import com.daiict.internship.Sahara.LoginSignUPDashboard.*;
 import com.daiict.internship.Sahara.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;

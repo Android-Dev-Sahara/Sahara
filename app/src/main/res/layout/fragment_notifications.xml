@@ -19,10 +19,6 @@
         android:elevation="3dp"
         app:tabPaddingBottom="8dp"
         app:tabPaddingTop="15dp"/>
-<!--    <view-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="1dp"-->
-<!--        android:background="@color/black"/>-->
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager_notifications_fragment"

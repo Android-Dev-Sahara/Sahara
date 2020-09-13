@@ -56,16 +56,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <Switch
-                android:id="@+id/switchNeedVolunteer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:fontFamily="@font/muli_black"
-                android:text="Need Volunteers"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

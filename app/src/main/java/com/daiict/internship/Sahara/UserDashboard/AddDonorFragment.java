@@ -43,8 +43,8 @@ public class AddDonorFragment extends Fragment {
                     isRawFood = switch_isRawFood.isChecked() ? "true" : "false";
 
                     intent.putExtra("Fragment", "adddonorfragment");
-                    //intent.putExtra("pickUpValue", pickUpTime);
-                    //intent.putExtra("isRawFood", isRawFood);
+                    intent.putExtra("pickUpValue", pickUpTime);
+                    intent.putExtra("isRawFood", isRawFood);
 
                     startActivity(intent);
                 }

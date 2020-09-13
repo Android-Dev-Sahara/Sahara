@@ -13,302 +13,289 @@
         android:layout_height="match_parent">
 
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/btn_signup_third_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="backBtnSignUpT"
-            android:padding="5dp"
-            android:src="@drawable/login_back_btn"
-            android:transitionName="create_account_back_btn"
-            tools:targetApi="lollipop"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/muli_black"
-            android:text="@string/signup_page3_text_title"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:transitionName="create_account_titile_text"
-            tools:targetApi="lollipop" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
             android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/btn_signup_third_back"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/signup_page3_edit_contact"
-                android:textColor="@color/black"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/signup_edit_contact"
-                app:startIconTint="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edttxt_signup_third_contact"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/muli_black"
-                    android:inputType="number"
-                    android:maxLength="10" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/signup_page3_spinner_city"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <Spinner
-                    android:id="@+id/spin_signup_third_city"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_gravity="right"
-                    android:layout_marginStart="40dp"
-                    android:entries="@array/cities" />
-            </LinearLayout>
+                android:onClick="backBtnSignUpT"
+                android:padding="5dp"
+                android:src="@drawable/login_back_btn"
+                android:transitionName="create_account_back_btn"
+                tools:ignore="ContentDescription"
+                tools:targetApi="lollipop" />
 
             <TextView
-                android:id="@+id/cityErrorMsg"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/select_city"
-                android:textSize="16sp"
-                android:textColor="@color/red"
-                android:visibility="gone"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtlayout_signup_third_ngo"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/signup_page3_edit_ngo"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/muli_black"
+                android:text="@string/signup_page3_text_title"
+                android:textAllCaps="true"
                 android:textColor="@color/black"
-                android:visibility="gone"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/signup_pages_textinput"
-                app:startIconTint="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edttxt_signup_third_ngo_member"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/muli_black"
-                    android:inputType="number"
-                    android:maxLength="5" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Switch
-                android:id="@+id/switch_signup_third_works_with"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1"
-                android:buttonTint="@color/black"
-                android:shadowColor="@color/black"
-                android:text="@string/signup_page3_switch_city"
-                android:textSize="18sp"
+                android:textSize="40sp"
                 android:textStyle="bold"
-                android:visibility="gone"
+                android:transitionName="create_account_titile_text"
                 tools:targetApi="lollipop" />
 
             <LinearLayout
-                android:id="@+id/linearlayout_signup_third_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:layout_marginTop="40dp"
+                android:orientation="vertical">
 
-
-                <TextView
+                <!-- Contact No Field-->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/signup_page3_rgrp_gender"
+                    android:hint="@string/signup_page3_edit_contact"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/signup_edit_contact"
+                    app:startIconTint="@color/black">
 
-                <RadioGroup
-                    android:id="@+id/rgrp_signup_third_gender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edttxt_signup_third_contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/muli_black"
+                        android:inputType="number"
+                        android:maxLength="10" />
 
-                    <RadioButton
-                        android:id="@+id/rbtn_signup_third_male"
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Members in NGO Section-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtlayout_signup_third_ngo"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signup_page3_edit_ngo"
+                    android:textColor="@color/black"
+                    android:visibility="gone"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/signup_pages_textinput"
+                    app:startIconTint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edttxt_signup_third_ngo_member"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/muli_black"
+                        android:inputType="number"
+                        android:maxLength="5" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Select NGO for Volunteer-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtlayout_signup_third_select_ngo"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_ngo_name"
+                    android:textColor="@color/black"
+                    android:visibility="gone"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/signup_pages_textinput"
+                    app:startIconTint="@color/black">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/edttxt_signup_third_ngo_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/muli_black"
+                        android:inputType="textAutoComplete"/>
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Gender Section-->
+                <LinearLayout
+                    android:id="@+id/linearlayout_signup_third_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/signup_page3_rbtn_male"
-                        android:buttonTint="@color/black"
-                        android:textStyle="bold"
-                        tools:targetApi="lollipop" />
+                        android:layout_marginTop="20dp"
+                        android:text="@string/signup_page3_rgrp_gender"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                    <RadioButton
-                        android:id="@+id/rbtn_signup_third_female"
+                    <RadioGroup
+                        android:id="@+id/rgrp_signup_third_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtn_signup_third_male"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/black"
+                            android:text="@string/signup_page3_rbtn_male"
+                            android:textStyle="bold"
+                            tools:targetApi="lollipop" />
+
+                        <RadioButton
+                            android:id="@+id/rbtn_signup_third_female"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/black"
+                            android:text="@string/signup_page3_rbtn_female"
+                            android:textStyle="bold"
+                            tools:targetApi="lollipop" />
+
+                        <RadioButton
+                            android:id="@+id/rbtn_signup_third_others"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/black"
+                            android:text="@string/signup_page3_rbtn_others"
+                            android:textStyle="bold"
+                            tools:targetApi="lollipop" />
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+                <!--
+                <LinearLayout
+                    android:id="@+id/linearlayout_signup_third_volunteer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/black" />
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/signup_page3_rbtn_female"
-                        android:buttonTint="@color/black"
-                        android:textStyle="bold"
-                        tools:targetApi="lollipop" />
+                        android:layout_marginTop="20dp"
+                        android:text="@string/signup_page3_rgrp_volunteer"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                    <RadioButton
-                        android:id="@+id/rbtn_signup_third_others"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/signup_page3_rbtn_others"
-                        android:buttonTint="@color/black"
-                        android:textStyle="bold"
-                        tools:targetApi="lollipop" />
-                </RadioGroup>
 
+                    <RadioGroup
+                        android:id="@+id/rgrp_signup_third_volunteer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtn_signup_third_emer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/black"
+                            android:text="@string/signup_page3_rbtn_emergency"
+                            android:textStyle="bold"
+                            tools:targetApi="lollipop" />
+
+                        <RadioButton
+                            android:id="@+id/rbtn_signup_third_normal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/black"
+                            android:text="@string/signup_page3_rbtn_normal"
+                            android:textStyle="bold"
+                            tools:targetApi="lollipop" />
+
+                        <RadioButton
+                            android:id="@+id/rbtn_signup_third_fixed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/black"
+                            android:text="@string/signup_page3_rbtn_fixed"
+                            android:textStyle="bold"
+                            tools:targetApi="lollipop" />
+                    </RadioGroup>
+
+
+                </LinearLayout>
+                -->
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/linearlayout_signup_third_volunteer"
+            <Button
+                android:id="@+id/btn_signup_third_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/black" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/signup_page3_rgrp_volunteer"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-
-                <RadioGroup
-                    android:id="@+id/rgrp_signup_third_volunteer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/rbtn_signup_third_emer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/signup_page3_rbtn_emergency"
-                        android:buttonTint="@color/black"
-                        android:textStyle="bold"
-                        tools:targetApi="lollipop" />
-
-                    <RadioButton
-                        android:id="@+id/rbtn_signup_third_normal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/signup_page3_rbtn_normal"
-                        android:buttonTint="@color/black"
-                        android:textStyle="bold"
-                        tools:targetApi="lollipop" />
-
-                    <RadioButton
-                        android:id="@+id/rbtn_signup_third_fixed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/signup_page3_rbtn_fixed"
-                        android:buttonTint="@color/black"
-                        android:textStyle="bold"
-                        tools:targetApi="lollipop" />
-                </RadioGroup>
-
-
-            </LinearLayout>
-
-
+                android:layout_marginTop="20dp"
+                android:background="@color/black"
+                android:onClick="nextBtnSignUpT"
+                android:text="@string/signup_page3_btn_signup"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:transitionName="create_account_next_btn"
+                tools:targetApi="lollipop" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_signup_third_signup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/black"
-            android:onClick="nextBtnSignUpT"
-            android:textAllCaps="true"
-            android:text="@string/signup_page3_btn_signup"
-            android:textColor="@color/white"
-            android:transitionName="create_account_next_btn"
-            tools:targetApi="lollipop" />
-    </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/progress_bar_login_rl_create"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="460dp"
-            android:padding="20dp"
-            android:visibility="gone"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="460dp"
             android:background="@drawable/progressbar_back"
-            android:elevation="8dp">
+            android:elevation="8dp"
+            android:padding="20dp"
+            android:visibility="gone">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-            <ProgressBar
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                <ProgressBar
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/loading_progress_bar"
-                    android:fontFamily="@font/muli_black"
+                    android:layout_gravity="center"
                     android:layout_marginStart="20dp"
-                    android:textSize="16sp"
-                    android:layout_gravity="center"/>
+                    android:fontFamily="@font/muli_black"
+                    android:text="@string/loading_progress_bar"
+                    android:textSize="16sp" />
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>

@@ -5,29 +5,27 @@ public class VolunteerModelData {
     private String userName;
     private String emailID;
     private String address;
+    private String area;
     private String dateOfBirth;
     private String contactNo;
-    private String cityName;
-    private String isWorkWithNGO;
     private String gender;
-    private String volunteerType;
+    private String ngoName;
     private String createDate;
     private String modifyDate;
     private String userIsVerified;
 
     public VolunteerModelData() {}
 
-    public VolunteerModelData(String volunteerID, String userName, String emailID, String address, String dateOfBirth, String contactNo, String cityName, String isWorkWithNGO, String gender, String volunteerType, String createDate, String modifyDate, String userIsVerified) {
+    public VolunteerModelData(String volunteerID, String userName, String emailID, String address, String area, String dateOfBirth, String contactNo, String gender, String ngoName, String createDate, String modifyDate, String userIsVerified) {
         this.volunteerID = volunteerID;
         this.userName = userName;
         this.emailID = emailID;
         this.address = address;
+        this.area = area;
         this.dateOfBirth = dateOfBirth;
         this.contactNo = contactNo;
-        this.cityName = cityName;
-        this.isWorkWithNGO = isWorkWithNGO;
         this.gender = gender;
-        this.volunteerType = volunteerType;
+        this.ngoName = ngoName;
         this.createDate = createDate;
         this.modifyDate = modifyDate;
         this.userIsVerified = userIsVerified;
@@ -65,6 +63,14 @@ public class VolunteerModelData {
         this.address = address;
     }
 
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -81,22 +87,6 @@ public class VolunteerModelData {
         this.contactNo = contactNo;
     }
 
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public String getIsWorkWithNGO() {
-        return isWorkWithNGO;
-    }
-
-    public void setIsWorkWithNGO(String isWorkWithNGO) {
-        this.isWorkWithNGO = isWorkWithNGO;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -105,12 +95,12 @@ public class VolunteerModelData {
         this.gender = gender;
     }
 
-    public String getVolunteerType() {
-        return volunteerType;
+    public String getNgoName() {
+        return ngoName;
     }
 
-    public void setVolunteerType(String volunteerType) {
-        this.volunteerType = volunteerType;
+    public void setNgoName(String ngoName) {
+        this.ngoName = ngoName;
     }
 
     public String getCreateDate() {

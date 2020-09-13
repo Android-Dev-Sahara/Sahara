@@ -17,16 +17,19 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.daiict.internship.Sahara.ModelData.DonationModelData;
+import com.daiict.internship.Sahara.ModelData.*;
 import com.daiict.internship.Sahara.R;
+import com.daiict.internship.Sahara.SignUp.SignUpSingle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class AddDonorAddItemAcitivity extends AppCompatActivity {
 
@@ -60,7 +63,6 @@ public class AddDonorAddItemAcitivity extends AppCompatActivity {
         //Hooks added for recyclerview
         rview = findViewById(R.id.recyclerview_dataitemshow);
 
-        //SetLayout Error has been removed
         rview.setLayoutManager(new LinearLayoutManager(AddDonorAddItemAcitivity.this));
 
         adapter_bind = new adapter(this, list);
@@ -104,7 +106,7 @@ public class AddDonorAddItemAcitivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!itemName.getText().toString().isEmpty() && !noofPersons.getText().toString().isEmpty() && !weight.getText().toString().isEmpty()) {
                     Snackbar.make(view, "Item Added Successfully", Snackbar.LENGTH_LONG).show();
-                    list.add(new AddItemDataClass(itemName.getText().toString(), Integer.parseInt(noofPersons.getText().toString()), Float.parseFloat(weight.getText().toString()), spoil));
+                    list.add(new AddItemDataClass(itemName.getText().toString(), noofPersons.getText().toString(), weight.getText().toString(), spoil ? "true" : "false"));
                     dialog.dismiss();
                     if (list.size() != 0) {
                         donateButton.setVisibility(View.VISIBLE);
@@ -132,7 +134,7 @@ public class AddDonorAddItemAcitivity extends AppCompatActivity {
             String createDate = Calendar.getInstance().getTime().toString();
             String modifyDate = Calendar.getInstance().getTime().toString();
 
-            donationModelData = new DonationModelData(donationId, isRawFood, pickUpTime, "TBD", "TBD", createDate, modifyDate, "Not Accepted");
+            donationModelData = new DonationModelData(donationId, isRawFood, pickUpTime, Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid(), createDate, modifyDate, "Not Accepted", null);
 
             donationRef.child("tbl_Donation").child(donationId).setValue(donationModelData).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
@@ -151,6 +153,7 @@ public class AddDonorAddItemAcitivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         Log.e("onComplete: ", "Last Data is Also Added....");
+                                        GeneralPurposeNotificationFragment.list.add(new GeneralNotificationClass("Thanks For Help!! You Donation Request is Under Process"));
                                         Intent intent = new Intent(AddDonorAddItemAcitivity.this, BottomNavigationUsers.class);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         fragmentName = "HomeFragment";

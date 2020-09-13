@@ -1,5 +1,6 @@
 package com.daiict.internship.Sahara.UserDashboard;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,11 +17,16 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.daiict.internship.Sahara.ModelData.NGODonationModelData;
 import com.daiict.internship.Sahara.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class NgoDonationsAddItemData extends AppCompatActivity {
 
@@ -31,17 +37,21 @@ public class NgoDonationsAddItemData extends AppCompatActivity {
     private Button donateButton;
     private ImageView imageViewDelete;
 
-    private String fragmentName, pickUpTime, isRawFood;
+    private String fragmentName, ngoName, deliverytime, israwfood;
+
+    DatabaseReference itemRef;
+    private String donationId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ngo_donations_add_item_data);
         fragmentName = getIntent().getStringExtra("Fragment");
-        //pickUpTime = getIntent().getStringExtra("pickUpValue");
-        //isRawFood = getIntent().getStringExtra("isRawFood");
+        ngoName = getIntent().getStringExtra("ngoname");
+        deliverytime = getIntent().getStringExtra("deliveryTime");
+        israwfood = getIntent().getStringExtra("israwfood");
 
-        Log.e("onCreate: ", "Pick Up Time: " + pickUpTime + " Raw Food? " + isRawFood);
+        itemRef = FirebaseDatabase.getInstance().getReference();
 
         list = new ArrayList<>();
         list.clear();
@@ -63,13 +73,50 @@ public class NgoDonationsAddItemData extends AppCompatActivity {
     }
 
     public void donateButtonClickedNgo(View view) {
+        // Add Data
+        donationId = itemRef.push().getKey();
+        String createDate = Calendar.getInstance().getTime().toString();
 
-        //Next Page
-        Intent intent = new Intent(this, NgoSelectionLocationAddData.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("Fragment", fragmentName);
-        startActivity(intent);
-
+        itemRef.child("tbl_NGO_Donation").child(donationId).child("donationId").setValue(donationId);
+        itemRef.child("tbl_NGO_Donation").child(donationId).child("createDate").setValue(createDate);
+        itemRef.child("tbl_NGO_Donation").child(donationId).child("ngoName").setValue(ngoName);
+        itemRef.child("tbl_NGO_Donation").child(donationId).child("deliveryTime").setValue(deliverytime);
+        itemRef.child("tbl_NGO_Donation").child(donationId).child("status").setValue("In Process");
+        itemRef.child("tbl_NGO_Donation").child(donationId).child("isRawFood").setValue(israwfood).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Log.e("onComplete: ", "Basic Donation Details Added!");
+                    for (int iter = 0; iter < list.size(); iter++) {
+                        String itemId = itemRef.push().getKey();
+                        AddItemDataClass dataClass = list.get(iter);
+                        assert itemId != null;
+                        if (iter == list.size() - 1) {
+                            itemRef.child("tbl_NGO_Donation").child(donationId).child("Items").child(itemId).setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Log.e("onComplete: ", "Last Data is Also Added....");
+                                    //Next Page
+                                    Intent intent = new Intent(getApplicationContext(), NgoSelectionLocationAddData.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    intent.putExtra("Fragment", fragmentName);
+                                    intent.putExtra("ngoname", ngoName);
+                                    intent.putExtra("donationid", donationId);
+                                    startActivity(intent);
+                                }
+                            });
+                        } else {
+                            itemRef.child("tbl_NGO_Donation").child(donationId).child("Items").child(itemId).setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Log.e("onComplete: ", "Item is Added...");
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+        });
     }
 
     public void backBtnAddNgoDataDisplay(View view) {
@@ -106,7 +153,7 @@ public class NgoDonationsAddItemData extends AppCompatActivity {
             public void onClick(View view) {
                 if (!itemName.getText().toString().isEmpty() && !noofPersons.getText().toString().isEmpty() && !weight.getText().toString().isEmpty()) {
                     Snackbar.make(view, "Item Added Successfully", Snackbar.LENGTH_LONG).show();
-                    list.add(new AddItemDataClass(itemName.getText().toString(), Integer.parseInt(noofPersons.getText().toString()), Float.parseFloat(weight.getText().toString()), spoil));
+                    list.add(new AddItemDataClass(itemName.getText().toString(), noofPersons.getText().toString(), weight.getText().toString(), spoil ? "true" : "false"));
                     dialog.dismiss();
                     if (list.size() != 0) {
                         donateButton.setVisibility(View.VISIBLE);

@@ -13,8 +13,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.daiict.internship.Sahara.IntroSlider.IntroSlider;
-import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
+import com.daiict.internship.Sahara.IntroSlider.*;
+import com.daiict.internship.Sahara.LoginSignUPDashboard.*;
 import com.daiict.internship.Sahara.R;
 
 public class SplashScreen extends AppCompatActivity {

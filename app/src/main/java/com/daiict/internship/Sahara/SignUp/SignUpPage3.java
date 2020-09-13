@@ -1,13 +1,11 @@
 package com.daiict.internship.Sahara.SignUp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -18,40 +16,43 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.daiict.internship.Sahara.Login.Login;
-import com.daiict.internship.Sahara.LoginSignUPDashboard.LoginSignUpDashboard;
-import com.daiict.internship.Sahara.ModelData.DonoModelData;
-import com.daiict.internship.Sahara.ModelData.NGOModelData;
-import com.daiict.internship.Sahara.ModelData.NeedyModelData;
-import com.daiict.internship.Sahara.ModelData.VolunteerModelData;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.daiict.internship.Sahara.Login.*;
+import com.daiict.internship.Sahara.ModelData.*;
 import com.daiict.internship.Sahara.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
 public class SignUpPage3 extends AppCompatActivity {
 
     String get_category;
-    TextInputLayout inputLayout_ngo_members_family_member;
+
+    TextInputLayout inputLayout_ngo_members_family_member, txtlayout_signup_third_select_ngo;
+    MaterialAutoCompleteTextView edttxt_signup_third_ngo_list;
     TextInputEditText editText_contact, editText_ngo_member;
-    Spinner spin_signup_third_city;
-    Switch aSwitch_worksfor;
-    TextView textView_cityErrorMsg;
-    RadioGroup rgrp_gender, rgrp_volunteer;
+    RadioGroup rgrp_gender;
     Button btn_signup;
-    LinearLayout linearLayout_volunteer_gender, linearLayout_volunteer_type;
+    LinearLayout linearLayout_volunteer_gender;
     RelativeLayout relativeLayout_progress;
+
+    private ArrayAdapter<String> adapter;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mReference;
@@ -66,24 +67,26 @@ public class SignUpPage3 extends AppCompatActivity {
 
     private void viewVisibility() {
         get_category = SignUpSingle.getInstance().getActor();
-        aSwitch_worksfor = findViewById(R.id.switch_signup_third_works_with);
         linearLayout_volunteer_gender = findViewById(R.id.linearlayout_signup_third_gender);
-        linearLayout_volunteer_type = findViewById(R.id.linearlayout_signup_third_volunteer);
         inputLayout_ngo_members_family_member = findViewById(R.id.txtlayout_signup_third_ngo);
-        spin_signup_third_city = findViewById(R.id.spin_signup_third_city);
+        edttxt_signup_third_ngo_list = findViewById(R.id.edttxt_signup_third_ngo_list);
+        txtlayout_signup_third_select_ngo = findViewById(R.id.txtlayout_signup_third_select_ngo);
         editText_contact = findViewById(R.id.edttxt_signup_third_contact);
         editText_ngo_member = findViewById(R.id.edttxt_signup_third_ngo_member);
-        textView_cityErrorMsg = findViewById(R.id.cityErrorMsg);
         rgrp_gender = findViewById(R.id.rgrp_signup_third_gender);
-        rgrp_volunteer = findViewById(R.id.rgrp_signup_third_volunteer);
         relativeLayout_progress = findViewById(R.id.progress_bar_login_rl_create);
-
+        // Firebase Code Binding
+        mAuth = FirebaseAuth.getInstance();
+        mReference = FirebaseDatabase.getInstance().getReference();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
 
         if (get_category.equalsIgnoreCase("volunteer")) {
-            aSwitch_worksfor.setVisibility(View.VISIBLE);
             linearLayout_volunteer_gender.setVisibility(View.VISIBLE);
-            linearLayout_volunteer_type.setVisibility(View.VISIBLE);
+            txtlayout_signup_third_select_ngo.setVisibility(View.VISIBLE);
+            loadNGO();
+            edttxt_signup_third_ngo_list.setAdapter(adapter);
         } else if (get_category.equalsIgnoreCase("ngo")) {
+            linearLayout_volunteer_gender.setVisibility(View.GONE);
             inputLayout_ngo_members_family_member.setVisibility(View.VISIBLE);
         } else if (get_category.equalsIgnoreCase("needy")) {
             linearLayout_volunteer_gender.setVisibility(View.VISIBLE);
@@ -92,10 +95,6 @@ public class SignUpPage3 extends AppCompatActivity {
         } else {
             linearLayout_volunteer_gender.setVisibility(View.VISIBLE);
         }
-
-        // Firebase Code Binding
-        mAuth = FirebaseAuth.getInstance();
-        mReference = FirebaseDatabase.getInstance().getReference();
     }
 
     public void backBtnSignUpT(View view) {
@@ -105,37 +104,34 @@ public class SignUpPage3 extends AppCompatActivity {
     }
 
     public void nextBtnSignUpT(View view) {
+
         int selectedRadioButtonID;
         RadioButton selectedRadioButton;
 
-        if (validateContact() && validateCitySpinner() && validateGender() && validateVolunteerType() && validateMemberCount()) {
+        if (validateContact() && validateGender() && validateNGOName() && validateMemberCount()) {
             btn_signup = findViewById(R.id.btn_signup_third_signup);
             btn_signup.setEnabled(false);
-            // Progress Dialog Here.......
             // SignUp Process Start
             String contact = editText_contact.getText().toString().trim();
-            String cityName = spin_signup_third_city.getSelectedItem().toString();
             // Get Gender
             selectedRadioButtonID = rgrp_gender.getCheckedRadioButtonId();
             selectedRadioButton = (rgrp_gender.getCheckedRadioButtonId() != -1) ? (RadioButton) findViewById(selectedRadioButtonID) : null;
             String gender = (selectedRadioButton != null) ? selectedRadioButton.getText().toString() : null;
-            // Get Volunteer Type
-            selectedRadioButtonID = rgrp_volunteer.getCheckedRadioButtonId();
-            selectedRadioButton = (rgrp_volunteer.getCheckedRadioButtonId() != -1) ? (RadioButton) findViewById(selectedRadioButtonID) : null;
-            String volunteerType = (selectedRadioButton != null) ? selectedRadioButton.getText().toString() : null;
-            String isWorkNgo = (aSwitch_worksfor.getVisibility() == View.VISIBLE) ? (aSwitch_worksfor.isChecked() ? "Yes" : "No") : null;
+            // Get NGO Member
             String memberCount = editText_ngo_member.getText().toString();
 
+            // Get NGO name for Volunteer
+            String NgoName = edttxt_signup_third_ngo_list.getText().toString().trim();
+
             SignUpSingle.getInstance().setContactNo(contact);
-            SignUpSingle.getInstance().setCityName(cityName);
             SignUpSingle.getInstance().setGender(gender);
-            SignUpSingle.getInstance().setVolunteerType(volunteerType);
-            SignUpSingle.getInstance().setIsWorkWithNgo(isWorkNgo);
+            SignUpSingle.getInstance().setVolunteerNgo(NgoName);
             SignUpSingle.getInstance().setMembersCount(memberCount);
 
             // If all things and Validation are Correct then now Create User Account
             createUserAccount();
         }
+
     }
 
     private void createUserAccount() {
@@ -172,12 +168,11 @@ public class SignUpPage3 extends AppCompatActivity {
                         relativeLayout_progress.setVisibility(View.INVISIBLE);
                         Snackbar alredyInUseMsg = Snackbar.make(rootView, "Given Email Already in Use", Snackbar.LENGTH_SHORT);
                         alredyInUseMsg.show();
-                        btn_signup.setEnabled(true);
                     } else {
                         relativeLayout_progress.setVisibility(View.INVISIBLE);
                         Log.e("Authentication Error: ", e.toString() + "");
-                        btn_signup.setEnabled(true);
                     }
+                    btn_signup.setEnabled(true);
                 }
             });
         } else {
@@ -216,7 +211,8 @@ public class SignUpPage3 extends AppCompatActivity {
     private void registerData() {
         String userID = (mAuth != null) ? mAuth.getUid() : null;
         String name = SignUpSingle.getInstance().getFirstName() + " " + SignUpSingle.getInstance().getLastName();
-        String address = SignUpSingle.getInstance().getAddressLine1() + ", " + SignUpSingle.getInstance().getAddressLine2();
+        String address = SignUpSingle.getInstance().getAddressLine1();
+        String area = SignUpSingle.getInstance().getAddressLine2();
         String createDate = Calendar.getInstance().getTime().toString();
         String modifyDate = Calendar.getInstance().getTime().toString();
         String userIsVerified = "No";
@@ -224,13 +220,14 @@ public class SignUpPage3 extends AppCompatActivity {
         assert userID != null;
 
         if (get_category.equalsIgnoreCase("donor")) {
-            DonoModelData modelData = new DonoModelData(userID,
+            DonoModelData modelData = new DonoModelData(
+                    userID,
                     name,
                     SignUpSingle.getInstance().getEmailID(),
                     address,
+                    area,
                     SignUpSingle.getInstance().getDateOfBirth_Establishment(),
                     SignUpSingle.getInstance().getContactNo(),
-                    SignUpSingle.getInstance().getCityName(),
                     SignUpSingle.getInstance().getGender(),
                     createDate,
                     modifyDate,
@@ -266,9 +263,9 @@ public class SignUpPage3 extends AppCompatActivity {
                     SignUpSingle.getInstance().getEmailID(),
                     SignUpSingle.getInstance().getNgoName(),
                     address,
+                    area,
                     SignUpSingle.getInstance().getDateOfBirth_Establishment(),
                     SignUpSingle.getInstance().getContactNo(),
-                    SignUpSingle.getInstance().getCityName(),
                     SignUpSingle.getInstance().getMembersCount(),
                     createDate,
                     modifyDate,
@@ -299,16 +296,16 @@ public class SignUpPage3 extends AppCompatActivity {
                 }
             });
         } else if (get_category.equalsIgnoreCase("volunteer")) {
-            VolunteerModelData modelData = new VolunteerModelData(userID,
+            VolunteerModelData modelData = new VolunteerModelData(
+                    userID,
                     name,
                     SignUpSingle.getInstance().getEmailID(),
                     address,
+                    area,
                     SignUpSingle.getInstance().getDateOfBirth_Establishment(),
                     SignUpSingle.getInstance().getContactNo(),
-                    SignUpSingle.getInstance().getCityName(),
-                    SignUpSingle.getInstance().getIsWorkWithNgo(),
                     SignUpSingle.getInstance().getGender(),
-                    SignUpSingle.getInstance().getVolunteerType(),
+                    SignUpSingle.getInstance().getVolunteerNgo(),
                     createDate,
                     modifyDate,
                     userIsVerified);
@@ -344,9 +341,9 @@ public class SignUpPage3 extends AppCompatActivity {
                     name,
                     SignUpSingle.getInstance().getEmailID(),
                     address,
+                    area,
                     SignUpSingle.getInstance().getDateOfBirth_Establishment(),
                     SignUpSingle.getInstance().getContactNo(),
-                    SignUpSingle.getInstance().getCityName(),
                     SignUpSingle.getInstance().getMembersCount(),
                     SignUpSingle.getInstance().getGender(),
                     createDate,
@@ -404,23 +401,6 @@ public class SignUpPage3 extends AppCompatActivity {
         }
     }
 
-    private boolean validateCitySpinner() {
-        /*
-         * City Spinner Validation:
-         * To check whether the Selected Option is Valid or Not
-         * */
-
-        String cityName = spin_signup_third_city.getSelectedItem().toString();
-
-        if (cityName.equalsIgnoreCase("--Select an Option--")) {
-            textView_cityErrorMsg.setVisibility(View.VISIBLE);
-            return false;
-        } else {
-            textView_cityErrorMsg.setVisibility(View.GONE);
-            return true;
-        }
-    }
-
     private boolean validateGender() {
         if ((!get_category.equalsIgnoreCase("ngo")) && rgrp_gender.getCheckedRadioButtonId() == -1) {
             View rootView = getWindow().getDecorView().getRootView();
@@ -432,8 +412,9 @@ public class SignUpPage3 extends AppCompatActivity {
         }
     }
 
-    private boolean validateVolunteerType() {
-        if (get_category.equalsIgnoreCase("volunteer") && rgrp_volunteer.getCheckedRadioButtonId() == -1) {
+
+    private boolean validateNGOName() {
+        if (get_category.equalsIgnoreCase("volunteer") && edttxt_signup_third_ngo_list.getText().toString().isEmpty()) {
             View rootView = getWindow().getDecorView().getRootView();
             Snackbar volunteerErrMsg = Snackbar.make(rootView, "Select any one Type", Snackbar.LENGTH_SHORT);
             volunteerErrMsg.show();
@@ -462,6 +443,23 @@ public class SignUpPage3 extends AppCompatActivity {
             return true;
         }
 
+    }
+
+    private void loadNGO() {
+        mReference.child("NGO").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String name = dataSnapshot.child("ngoName").getValue(String.class);
+                    adapter.add(name);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
 
