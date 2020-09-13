@@ -25,11 +25,13 @@ public class AdapterVolunteerSelectionNgo extends RecyclerView.Adapter<AdapterVo
     Context context;
     ArrayList<VolunteerSelectionClass> list;
     String donationID;
+    String fromNgo;
 
-    public AdapterVolunteerSelectionNgo(Context context, ArrayList<VolunteerSelectionClass> list, String id) {
+    public AdapterVolunteerSelectionNgo(Context context, ArrayList<VolunteerSelectionClass> list, String id, String fromNgo) {
         this.context = context;
         this.list = list;
         this.donationID = id;
+        this.fromNgo = fromNgo;
     }
 
     @NonNull
@@ -48,14 +50,27 @@ public class AdapterVolunteerSelectionNgo extends RecyclerView.Adapter<AdapterVo
             @Override
             public void onClick(View view) {
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-                reference.child("tbl_Donation").child(donationID).child("assignTo").setValue(item.getId()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Intent intent = new Intent(context, BottomNavigationUsers.class);
-                        intent.putExtra("Fragment", "Homefragment");
-                        context.startActivity(intent);
-                    }
-                });
+                if (fromNgo.equalsIgnoreCase("yes")) {
+                    // From NGO Donation Side
+                    reference.child("tbl_NGO_Donation").child(donationID).child("assignTo").setValue(item.getId()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Intent intent = new Intent(context, BottomNavigationUsers.class);
+                            intent.putExtra("Fragment", "Homefragment");
+                            context.startActivity(intent);
+                        }
+                    });
+                } else {
+                    // From Special Notification Side
+                    reference.child("tbl_Donation").child(donationID).child("assignTo").setValue(item.getId()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Intent intent = new Intent(context, BottomNavigationUsers.class);
+                            intent.putExtra("Fragment", "Homefragment");
+                            context.startActivity(intent);
+                        }
+                    });
+                }
             }
         });
     }

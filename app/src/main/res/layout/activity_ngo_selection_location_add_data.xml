@@ -67,6 +67,7 @@
         android:text="Next"
         android:drawableTint="@color/white"
         android:drawableRight="@drawable/intro_image_arrow_right"
+        android:visibility="gone"
         android:textColor="@color/white"/>
 
 </RelativeLayout>

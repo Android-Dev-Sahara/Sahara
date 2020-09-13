@@ -23,7 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class NgoSelectionLocationAddData extends AppCompatActivity {
-    private String fragmentName;
+    private String fragmentName, ngoname, donationid;
+    AreaAdapter areaAdapter;
     private ArrayList<AreaModelData> list = new ArrayList<>();
     RecyclerView rView;
     @Override
@@ -31,17 +32,17 @@ public class NgoSelectionLocationAddData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ngo_selection_location_add_data);
         fragmentName = getIntent().getStringExtra("Fragment");
+        ngoname = getIntent().getStringExtra("ngoname");
+        donationid = getIntent().getStringExtra("donationid");
+
         rView = findViewById(R.id.recyclerview_data_location_ngo);
         rView.setHasFixedSize(true);
         rView.setLayoutManager(new LinearLayoutManager(this));
-        // Temporary Data
-        list.add(new AreaModelData("Adalaj", "23.5689", "72.11523", "Red", "23", "382004", "1200"));
-        list.add(new AreaModelData("Ambapur", "23.5689", "72.11523", "Red", "23", "382004", "1200"));
 
-
-        AreaAdapter areaAdapter = new AreaAdapter(this, list);
+        areaAdapter = new AreaAdapter(this, list, fragmentName, ngoname, donationid);
         rView.setAdapter(areaAdapter);
-        areaAdapter.notifyDataSetChanged();
+
+        getAreaData();
     }
 
     private void getAreaData() {
@@ -49,6 +50,8 @@ public class NgoSelectionLocationAddData extends AppCompatActivity {
         ref.child("tbl_Areas").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                areaAdapter.notifyDataSetChanged();
+                list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String name = dataSnapshot.child("areaName").getValue(String.class);
                     String latitude = dataSnapshot.child("latitude").getValue(String.class);
@@ -77,10 +80,13 @@ public class NgoSelectionLocationAddData extends AppCompatActivity {
     }
 
     public void LocationSelectionProceed(View view) {
+        RecentDonationsNGOFragment recentDonationsNGOFragment = new RecentDonationsNGOFragment();
+
         Intent intent = new Intent(this, NgoSelectionofVolunteer.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("Fragment", fragmentName);
-        startActivity(intent);
+        //intent.putExtra("ngoname", modelData.getNgoName());
+        //context.startActivity(intent);
 
     }
 }

@@ -143,6 +143,7 @@ public class DonationDetails extends AppCompatActivity {
                             Intent intent = new Intent(DonationDetails.this, NgoSelectionofVolunteer.class);
                             intent.putExtra("donationid", donationID);
                             intent.putExtra("ngoname", ngoName);
+                            intent.putExtra("fromNgo", "no");
                             startActivity(intent);
                         }
                     });

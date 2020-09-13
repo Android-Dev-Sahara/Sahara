@@ -28,7 +28,7 @@ public class NgoSelectionofVolunteer extends AppCompatActivity {
 
     DatabaseReference mRef;
 
-    String donationID, ngoName;
+    String donationID, ngoName, fromngo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,8 @@ public class NgoSelectionofVolunteer extends AppCompatActivity {
 
         donationID = getIntent().getStringExtra("donationid");
         ngoName = getIntent().getStringExtra("ngoname");
+        fromngo = getIntent().getStringExtra("fromNgo");
+
         //Hooks added for recyclerview
         rview = findViewById(R.id.recyclerview_data_volunteer_ngo);
         rview.setHasFixedSize(true);
@@ -47,7 +49,7 @@ public class NgoSelectionofVolunteer extends AppCompatActivity {
         list=new ArrayList<>();
 
 
-        final AdapterVolunteerSelectionNgo adapter = new AdapterVolunteerSelectionNgo(this, list, donationID);
+        final AdapterVolunteerSelectionNgo adapter = new AdapterVolunteerSelectionNgo(this, list, donationID, fromngo);
         rview.setAdapter(adapter);
 
 
