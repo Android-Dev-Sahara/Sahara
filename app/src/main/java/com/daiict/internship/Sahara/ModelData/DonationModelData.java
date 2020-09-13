@@ -9,6 +9,7 @@ public class DonationModelData {
     private String modifyDate;
     private String status;
     private String acceptedBy;
+    private String assignTo;
 
     public DonationModelData() {}
 
@@ -28,6 +29,26 @@ public class DonationModelData {
         this.modifyDate = modifyDate;
         this.status = status;
         this.acceptedBy = acceptedBy;
+    }
+
+    public DonationModelData(String donationId, String isRawFood, String pickUpTime, String donorId, String createDate, String modifyDate, String status, String acceptedBy, String assignTo) {
+        this.donationId = donationId;
+        this.isRawFood = isRawFood;
+        this.pickUpTime = pickUpTime;
+        this.donorId = donorId;
+        this.createDate = createDate;
+        this.modifyDate = modifyDate;
+        this.status = status;
+        this.acceptedBy = acceptedBy;
+        this.assignTo = assignTo;
+    }
+
+    public String getAssignTo() {
+        return assignTo;
+    }
+
+    public void setAssignTo(String assignTo) {
+        this.assignTo = assignTo;
     }
 
     public String getDonationId() {

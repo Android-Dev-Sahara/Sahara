@@ -3,7 +3,7 @@ package com.daiict.internship.Sahara.ModelData;
 public class NGODonationModelData {
     private String donationId;
     private String ngoName;
-    private String rawFood;
+    private String isRawFood;
     private String deliveryTime;
     private String location;
     private String createDate;
@@ -12,10 +12,10 @@ public class NGODonationModelData {
 
     public NGODonationModelData() {}
 
-    public NGODonationModelData(String donationId, String ngoName, String rawFood, String deliveryTime, String location, String createDate, String status, String assignTo) {
+    public NGODonationModelData(String donationId, String ngoName, String isRawFood, String deliveryTime, String location, String createDate, String status, String assignTo) {
         this.donationId = donationId;
         this.ngoName = ngoName;
-        this.rawFood = rawFood;
+        this.isRawFood = isRawFood;
         this.deliveryTime = deliveryTime;
         this.location = location;
         this.createDate = createDate;
@@ -39,12 +39,12 @@ public class NGODonationModelData {
         this.ngoName = ngoName;
     }
 
-    public String getRawFood() {
-        return rawFood;
+    public String getIsRawFood() {
+        return isRawFood;
     }
 
-    public void setRawFood(String rawFood) {
-        this.rawFood = rawFood;
+    public void setIsRawFood(String isRawFood) {
+        this.isRawFood = isRawFood;
     }
 
     public String getDeliveryTime() {
